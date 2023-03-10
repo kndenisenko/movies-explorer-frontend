@@ -1,0 +1,14 @@
+.page {
+  --bg-color: #272727;
+  --second-bg-color: #202020;
+  --hero-color: #073042;
+  --accent-color: #3DDC84;
+  --blue: #4285F4;
+  --red: #EE3465;
+
+  max-width: 1280px;
+  background-color: var(--bg-color);
+  font-family: inter, Arial, Helvetica, sans-serif;
+  color: white;
+  margin: 0 auto;
+}
