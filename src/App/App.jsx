@@ -5,7 +5,7 @@ import { pathes } from '../utils/settings';
 
 
 // импорт компонентов react
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 // импорт компонентов сайта
 import Header from "../Header/Header";
@@ -16,17 +16,12 @@ function App() {
   <div className="page">
     <Header />
 
-    <main className='main'>
       <Routes>
 
         {/* главная страница */}
-        <Route
-        path={pathes.main}
-        element={<Main />}
-        />
+        <Route path={pathes.main} element={<Main />} />
 
       </Routes>
-    </main>
 
   </div>
   );
