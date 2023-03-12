@@ -10,7 +10,7 @@ function Header() {
   console.log('Header')
 
   return (
-    <div className="header">
+    <header className="header">
       <Link to={pathes.main}>
         <img className="header__logo" src={logo} alt="Логотип сайта" />
       </Link>
@@ -20,7 +20,7 @@ function Header() {
           <Link to={pathes.login} className="navy__link_button"><p className="navy__link_button_text">Войти</p></Link>
         </div>
       </nav>
-    </div>
+    </header>
   );
 }
 

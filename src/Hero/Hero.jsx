@@ -6,9 +6,9 @@ function Hero() {
   console.log('Hero')
 
   return (
-    <div className="hero">
+    <section className="hero">
       <h1 className="hero__header">Учебный проект студента факультета Веб-разработки.</h1>
-    </div>
+    </section>
   );
 }
 
