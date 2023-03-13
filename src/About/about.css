@@ -1,5 +1,6 @@
 .about {
   padding: 110px 70px;
+  background-color: var(--second-bg-color);
 }
 
 .about__header {
@@ -16,7 +17,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 40px;
-  margin: 0 0 110px 0;
+  margin: 70px 0 110px 0;
   padding: 0;
 }
 
@@ -91,10 +92,8 @@
   }
 
   .about__list {
-    margin: 0 0 93px 0;
+    margin: 60px 0 93px 0;
   }
-
-
 }
 
 

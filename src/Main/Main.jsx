@@ -3,6 +3,7 @@ import "./main.css";
 import Hero from "../Hero/Hero";
 import Navigation from "../Navigation/Navigation";
 import About from "../About/About";
+import Tech from "../Tech/Tech";
 
 import React from "react";
 
@@ -14,6 +15,7 @@ function Main() {
     <Hero />
     <Navigation />
     <About />
+    <Tech />
   </>
   );
 }
