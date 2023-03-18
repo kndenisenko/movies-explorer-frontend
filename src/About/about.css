@@ -92,9 +92,25 @@
     padding: 90px 50px;
   }
 
-  .about__list {
-    margin: 60px 0 93px 0;
+  .about__header {
+    margin: 0;
   }
+
+  .about__list {
+    grid-gap: 31px;
+    margin: 72px 0 93px 0;
+  }
+
+  .about__list-header {
+    margin: 0 0 23px 0;
+  }
+
+  .about__container-text {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 400;
+  }
+
 }
 
 

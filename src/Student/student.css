@@ -62,6 +62,7 @@
 }
 
 .student__info-photo {
+  border-radius: 10px;
   grid-area: photo;
 }
 
@@ -125,8 +126,14 @@
     padding: 90px 50px 90px 50px;
   }
 
+  .student__header {
+    margin: 0 0 65px 0;
+    padding: 0 0 24px 0;
+  }
+
   .student__info {
-    grid-template-columns: 364fr 250fr;
+    grid-template-columns: 358fr 250fr;
+    margin: 0 0 91px 0;
   }
 
   .student__info-photo {
