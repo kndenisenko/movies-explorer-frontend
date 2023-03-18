@@ -5,7 +5,7 @@
   align-items: center;
   background-color: var(--hero-color);
   background-image: url(../images/hero.png);
-  background-position: center;
+  background-position: center 40%;
   background-size: 320px 320px;
   background-repeat: no-repeat;
   /* padding: 224px 224px 240px 224px; */
@@ -17,10 +17,10 @@
   font-size: 50px;
   line-height: 58px;
   font-weight: 400;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
   text-align: center;
   /* margin: 0 auto; */
-  margin: 184px 0 224px 0;
+  margin: 181px 0 224px 0;
 }
 
 @media (width <= 768px) {
