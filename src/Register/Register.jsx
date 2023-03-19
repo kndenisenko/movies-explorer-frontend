@@ -25,9 +25,8 @@ function Register({ handleRegister, errorMessage }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-
-    handleRegister(name, email, password);
     console.log(name, email, password);
+    handleRegister(name, email, password);
   }
 
   return (
@@ -35,7 +34,7 @@ function Register({ handleRegister, errorMessage }) {
       <div className="register__container">
         <Link to={pathes.main} className="register__logo"></Link>
         <h1 className="register__header">Добро пожаловать!</h1>
-        <form className="register__form">
+        <form className="register__form" onSubmit={handleSubmit}>
           <p className="register__form-header">Имя</p>
           <input
             className="register__input"

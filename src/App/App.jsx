@@ -14,6 +14,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main.jsx"
 import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 
 function App() {
 
@@ -39,6 +40,12 @@ function App() {
         <Route path={pathes.register}
           element={
           <Register />
+          }
+        ></Route>
+
+<Route path={pathes.login}
+          element={
+          <Login />
           }
         ></Route>
 
