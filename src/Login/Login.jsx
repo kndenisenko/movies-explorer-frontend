@@ -58,8 +58,8 @@ function Login({ handleLogin }) {
           <button className="login__button" type="submit">Зарегистрироваться</button>
         </form>
         <div className="login__bottom-container">
-        <p className="login__bottom-container-text">Уже зарегистрированы?</p>
-        <Link to={pathes.login} className="login__bottom-container-link">Войти</Link>
+          <p className="login__bottom-container-text">Уже зарегистрированы?</p>
+          <Link to={pathes.login} className="login__bottom-container-link">Войти</Link>
       </div>
       </div>
     </section>

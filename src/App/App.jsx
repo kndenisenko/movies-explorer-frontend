@@ -15,10 +15,12 @@ import Main from "../Main/Main.jsx"
 import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
+import Profile from '../Profile/Profile';
 
 function App() {
 
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  //const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true);
 
   return (
   <div className="page">
@@ -41,13 +43,22 @@ function App() {
           element={
           <Register />
           }
-        ></Route>
+        />
 
-<Route path={pathes.login}
+        <Route path={pathes.login}
           element={
           <Login />
           }
-        ></Route>
+        />
+
+<Route path={pathes.profile}
+          element={
+            <>
+              <Header isUserLoggedIn={isUserLoggedIn} />
+              <Profile />
+          </>
+          }
+        />
 
       </Routes>
 
