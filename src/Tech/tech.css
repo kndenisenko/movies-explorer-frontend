@@ -97,7 +97,13 @@
 
 @media (width <= 430px) {
   .tech {
-    padding: 70px 18px;
+    padding: 66px 18px;
+  }
+
+  .tech__header {
+    font-size: 18px;
+    margin: 0;
+    padding: 0 0 28px 0;
   }
 
   .tech__container-header {
@@ -107,7 +113,6 @@
   .tech__container-text {
     font-size: 11px;
     line-height: 16px;
-
   }
 }
 
@@ -123,4 +128,17 @@
   .tech__list-item:last-child {
     margin-right: 10px;
   }
+
+  .tech__container {
+    margin: 49px 0 51px 0;
+  }
+
+  .tech__container-header {
+    margin: 0 0 13px 0;
+  }
+
+  .tech__container-text {
+    letter-spacing: -0.04em;
+  }
+
 }

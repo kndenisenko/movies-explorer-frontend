@@ -4,6 +4,7 @@
   grid-template-areas:
     "text text"
     "copy navy";
+    background-color: var(--second-bg-color);
   padding: 79px 70px 20px 70px;
 }
 
@@ -53,7 +54,7 @@
 
 @media (width <= 360px) {
   .footer {
-    padding: 79px 10px 20px 10px;
+    padding: 60px 10px 20px 10px;
     grid-template-columns: 1fr;
     grid-template-areas:
       "text"
@@ -64,6 +65,7 @@
   .footer__text {
     font-size: 12px;
     padding: 0 0 21px 0;
+    margin: 0 0 10px 0;
   }
 
   .footer__copywright {
@@ -83,6 +85,10 @@
     color: white;
     text-decoration: none;
     margin: 0 0 12px 0;
+  }
+
+  .footer__copywright {
+    margin: 32px 0 0 0;
   }
 
 }

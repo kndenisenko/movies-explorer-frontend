@@ -30,7 +30,7 @@
 
   .hero__header {
     min-width: 300px;
-    font-size: calc( (100vw - 320px)/(768 - 320) * (50 - 29) + 29px);
+    font-size: calc( (100vw - 320px)/(768 - 320) * (50 - 31) + 31px);
     line-height: calc( (100vw - 320px)/(768 - 320) * (58 - 39) + 39px);
     margin: 323px 19px 342px 19px;
   }
@@ -39,10 +39,11 @@
 @media (width <= 348px) {
   .hero {
     background-size: 248px 248px;
+    background-position: center 43.9%;
   }
 
   .hero__header {
-    margin: 207px 0px 246px 0px;
+    margin: 204px 0px 246px 0px;
   }
 
   .hero__list-link {

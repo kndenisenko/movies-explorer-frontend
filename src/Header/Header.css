@@ -71,10 +71,18 @@
   }
 
   .navy__container {
-    margin: 24px 14px 24px 0;
+    margin: 20px 14px 24px 0;
   }
 
   .navy__link_text {
+    font-size: 10px;
+    line-height: 16px;
     margin: 0 14px 0 0;
+  }
+
+  .navy__link_button_text {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 5px 12px
   }
 }

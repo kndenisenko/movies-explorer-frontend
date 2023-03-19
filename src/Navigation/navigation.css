@@ -4,8 +4,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: var(--second-bg-color);
-
+  background-color: var(--bg-color);
 }
 
 .navigation__list {
@@ -35,4 +34,19 @@
 
 .navigation__list-link:hover {
   opacity: .7;
+}
+
+@media (width <= 348px) {
+  .navigation__list {
+    margin: 22px auto 24px auto;
+  }
+
+  .navigation__list-item {
+    margin-right: 24px;
+  }
+
+  .navigation__list-link {
+    font-size: 11px;
+    line-height: 16px;
+  }
 }

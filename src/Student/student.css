@@ -1,5 +1,6 @@
 .student {
   padding: 110px 70px 125px 70px;
+  background-color: var(--second-bg-color);
 }
 
 .student__header {
@@ -171,13 +172,18 @@
 
 @media (width <= 630px) {
   .student {
-    padding: 70px 14px 90px 14px;
+    padding: 63px 14px 90px 14px;
   }
 
+  .student__header {
+    font-size: 18px;
+    margin: 0 0 60px 0;
+    padding: 0 0 30px 0;
+  }
 
   .student__info {
     grid-template-columns: 1fr;
-    grid-gap: 40px;
+    grid-gap: 39px;
     grid-template-areas:
       "photo"
       "info"
@@ -187,7 +193,7 @@
   .student__info-name {
     font-size: 30px;
     line-height: auto;
-    margin: 0 0 20px 0;
+    margin: 0 0 17px 0;
   }
 
   .student__info-status {
@@ -202,15 +208,19 @@
     margin: 0;
   }
 
+  .student__info-whoops {
+    font-size: 14px;
+  }
+
   .student__portfolio-header {
     font-size: 14px;
-      margin: 0 0 40px 0;
+      margin: 0 0 41px 0;
   }
 
   .student__portfolio-list-item {
     border-bottom: 1px solid #424242;
-    margin: 0 0 0 0;
-    padding: 0 0 14px 0;
+    margin: 0 0 20px 0;
+    padding: 0 0 19px 0;
   }
 
   .student__portfolio-list-item:last-child {
