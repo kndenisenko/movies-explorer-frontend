@@ -5,6 +5,7 @@
   --accent-color: #3DDC84;
   --blue: #4285F4;
   --red: #EE3465;
+  --form-header-color: #8B8B8B;
 
   max-width: 1280px;
   background-color: var(--bg-color);

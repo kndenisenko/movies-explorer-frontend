@@ -13,6 +13,7 @@ import { CurrentUserContext } from "../utils/CurrentUserContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main.jsx"
 import Footer from '../Footer/Footer';
+import Register from '../Register/Register';
 
 function App() {
 
@@ -34,6 +35,12 @@ function App() {
             </>
           }
         />
+
+        <Route path={pathes.register}
+          element={
+          <Register />
+          }
+        ></Route>
 
       </Routes>
 
