@@ -3,13 +3,12 @@ import "./register.css";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { pathes } from "../utils/settings";
-// import logo from "../images/logo.png";
 
 function Register({ handleRegister, errorMessage }) {
   console.log('Register')
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
+  const [password, setPassword] = useState("");
 
   function inputName(event) {
     setName(event.target.value);
@@ -20,7 +19,7 @@ function Register({ handleRegister, errorMessage }) {
   }
 
   function inputpassword(event) {
-    setpassword(event.target.value);
+    setPassword(event.target.value);
   }
 
   function handleSubmit(event) {

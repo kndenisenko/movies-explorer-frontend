@@ -55,7 +55,7 @@ function Login({ handleLogin }) {
           onChange={inputpassword}
           />
 
-          <button className="login__button" type="submit">Зарегистрироваться</button>
+          <button className="login__button" type="submit">Войти</button>
         </form>
         <div className="login__bottom-container">
           <p className="login__bottom-container-text">Уже зарегистрированы?</p>
