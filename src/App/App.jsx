@@ -16,6 +16,7 @@ import Footer from '../Footer/Footer';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from '../Profile/Profile';
+import NotFound from '../NotFound/NotFound';
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
           }
         />
 
-<Route path={pathes.profile}
+        <Route path={pathes.profile}
           element={
             <>
               <Header isUserLoggedIn={isUserLoggedIn} />
@@ -59,6 +60,8 @@ function App() {
           </>
           }
         />
+
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
 
