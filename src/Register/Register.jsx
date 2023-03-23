@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { pathes } from "../utils/settings";
 
 function Register({ handleRegister, errorMessage }) {
-  console.log('Register')
+  console.log("Register");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,7 +43,7 @@ function Register({ handleRegister, errorMessage }) {
             maxLength="40"
             required
             value={name}
-          onChange={inputName}
+            onChange={inputName}
           />
 
           <p className="register__form-header">E-mail</p>
@@ -55,7 +55,7 @@ function Register({ handleRegister, errorMessage }) {
             maxLength="40"
             required
             value={email}
-          onChange={inputEmail}
+            onChange={inputEmail}
           />
 
           <p className="register__form-header">Пароль</p>
@@ -67,21 +67,26 @@ function Register({ handleRegister, errorMessage }) {
             maxLength="40"
             required
             value={password}
-          onChange={inputpassword}
+            onChange={inputpassword}
           />
 
           <span className="register__error">{errorMessage}</span>
 
-          <button className="register__button" type="submit">Зарегистрироваться</button>
+          <button className="register__button" type="submit">
+            Зарегистрироваться
+          </button>
         </form>
         <div className="register__bottom-container">
-        <p className="register__bottom-container-text">Уже зарегистрированы?</p>
-        <Link to={pathes.login} className="register__bottom-container-link">Войти</Link>
-      </div>
+          <p className="register__bottom-container-text">
+            Уже зарегистрированы?
+          </p>
+          <Link to={pathes.login} className="register__bottom-container-link">
+            Войти
+          </Link>
+        </div>
       </div>
     </section>
-
   );
 }
 
-export default Register
+export default Register;

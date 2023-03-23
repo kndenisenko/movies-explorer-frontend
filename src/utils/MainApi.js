@@ -1,6 +1,6 @@
 // Запросы к нашему Api
 
-import { urls } from '../utils/settings.js'
+import { urls } from "../utils/settings.js";
 
 class Api {
   constructor({ baseUrl, headers }) {
@@ -12,7 +12,7 @@ class Api {
     return fetch(`${this._baseUrl}/movies`, {
       headers: {
         ...this._headers,
-        authorization: 'Bearer ' + token,
+        authorization: "Bearer " + token,
       },
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
   }
@@ -41,7 +41,6 @@ class Api {
     });
     return await (res.ok ? res.json() : Promise.reject(res.status));
   }
-
 
   saveMovie(
     country,
@@ -79,7 +78,6 @@ class Api {
     }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
   }
 
-
   deleteMovie(id, token) {
     return fetch(`${this._baseUrl}/movies/${id}`, {
       method: "DELETE",
@@ -95,8 +93,6 @@ class Api {
         throw error;
       });
   }
-
-
 }
 
 export const MainApi = new Api({

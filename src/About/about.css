@@ -7,7 +7,7 @@
   font-size: 22px;
   letter-spacing: -0.04em;
   font-weight: 400;
-  border-bottom: 1px solid #DADADA;
+  border-bottom: 1px solid #dadada;
   margin: 0 0 0 10px;
   padding: 0 0 23px 0;
 }
@@ -42,8 +42,8 @@
   row-gap: 14px;
   grid-template-columns: 1fr 4fr;
   grid-template-areas:
-  "one-week four-weeks"
-  "back-end front-end";
+    "one-week four-weeks"
+    "back-end front-end";
 }
 
 .about__container-text {
@@ -70,7 +70,7 @@
 
 .about__container-text-left {
   text-align: center;
-  color: #8B8B8B;
+  color: #8b8b8b;
   font-weight: 500;
   line-height: 17px;
   margin: 0;
@@ -79,7 +79,7 @@
 
 .about__container-text-right {
   text-align: center;
-  color: #8B8B8B;
+  color: #8b8b8b;
   font-weight: 500;
   line-height: 17px;
   margin: 0;
@@ -114,9 +114,7 @@
     line-height: 18px;
     font-weight: 400;
   }
-
 }
-
 
 @media (width <= 630px) {
   .about {
@@ -157,6 +155,4 @@
   .about__container-text {
     font-size: 11px;
   }
-
 }
-

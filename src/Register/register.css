@@ -72,13 +72,12 @@
   color: white;
   padding: 13px 126px 15px 124px;
   cursor: pointer;
-  transition: all, .3s;
+  transition: all, 0.3s;
   margin: 122px 0 0 0;
-
 }
 
 .register__button:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .register__bottom-container {
@@ -99,11 +98,11 @@
   text-decoration: none;
   font-size: 14px;
   color: var(--blue);
-  transition: all, .3s
+  transition: all, 0.3s;
 }
 
 .register__bottom-container-link:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 @media (width <= 768px) {
@@ -111,7 +110,6 @@
     padding: 232px 0 92px 0;
   }
 }
-
 
 @media (width <= 400px) {
   .register {
@@ -169,5 +167,4 @@
   .register__bottom-container-text {
     font-size: 12px;
   }
-
 }

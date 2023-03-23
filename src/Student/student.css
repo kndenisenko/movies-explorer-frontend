@@ -7,7 +7,7 @@
   font-size: 22px;
   letter-spacing: -0.04em;
   font-weight: 400;
-  border-bottom: 1px solid #DADADA;
+  border-bottom: 1px solid #dadada;
   margin: 0 0 65px 0;
   padding: 0 0 23px 0;
 }
@@ -54,12 +54,12 @@
   text-decoration: none;
   color: white;
   cursor: pointer;
-  transition: all, .3s;
+  transition: all, 0.3s;
   grid-area: whoops;
 }
 
 .student__info-whoops:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .student__info-photo {
@@ -67,13 +67,14 @@
   grid-area: photo;
 }
 
-.student__portfolio {}
+.student__portfolio {
+}
 
 .student__portfolio-header {
   font-size: 18px;
   line-height: 20px;
   font-weight: 400;
-  color: #8B8B8B;
+  color: #8b8b8b;
   margin: 0 0 50px 0;
 }
 
@@ -107,11 +108,11 @@
   background-size: 20px 20px;
   background-position-x: right 5px;
   background-position-y: center;
-  transition: all, .3s;
+  transition: all, 0.3s;
 }
 
 .student__portfolio-list-link:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 @media (width <= 1133px) {
@@ -120,7 +121,6 @@
     grid-gap: 87px 49px;
   }
 }
-
 
 @media (width <= 1045px) {
   .student {
@@ -165,10 +165,7 @@
   .student__portfolio-list-link {
     font-size: 28px;
   }
-
-
 }
-
 
 @media (width <= 630px) {
   .student {
@@ -214,7 +211,7 @@
 
   .student__portfolio-header {
     font-size: 14px;
-      margin: 0 0 41px 0;
+    margin: 0 0 41px 0;
   }
 
   .student__portfolio-list-item {
@@ -234,7 +231,4 @@
     background-size: 10px 10px;
     letter-spacing: -0.04em;
   }
-
-
-
 }

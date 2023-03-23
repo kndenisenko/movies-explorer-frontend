@@ -16,9 +16,8 @@ export default function MoviesCardList({
   isSavedMoviesSection,
   isMainMoviesSection,
   savedMovies,
-  token
+  token,
 }) {
-
   // console.log(isLoading);
   return isLoading ? (
     <>
@@ -37,7 +36,7 @@ export default function MoviesCardList({
       </section>
       {moreMovies ? <MoreMovies onClick={buttonMore} /> : null}
     </>
-   ) : null // (
+  ) : null; // (
   //   <Preloader />
   // );
 }

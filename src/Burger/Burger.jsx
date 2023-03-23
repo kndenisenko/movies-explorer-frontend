@@ -2,13 +2,15 @@ import "./burger.css";
 
 import { React } from "react";
 import { Link } from "react-router-dom";
-import user from "../images/user.png"
+import user from "../images/user.png";
 
-import { pathes } from "../utils/settings"
+import { pathes } from "../utils/settings";
 
 function Burger({ isOpen, onClose }) {
   return (
-    <section className={`burger__navigation ${isOpen && "burger__navigation-enable"}`}>
+    <section
+      className={`burger__navigation ${isOpen && "burger__navigation-enable"}`}
+    >
       <div className="burger__navigation-container">
         <div className="burger__navigation-links-container">
           <Link
@@ -40,12 +42,18 @@ function Burger({ isOpen, onClose }) {
           </Link>
           <div className="burger__navigation-underline"></div>
         </div>
-        <Link className="burger__navigation-button"
-        to={pathes.profile} onClick={onClose}>
+        <Link
+          className="burger__navigation-button"
+          to={pathes.profile}
+          onClick={onClose}
+        >
           <p className="burger__navigation-button-text">Аккаунт</p>
           <img className="burger__navigation-button-icon" src={user} alt="" />
         </Link>
-        <button className="burger__navigation-close-button" onClick={onClose}></button>
+        <button
+          className="burger__navigation-close-button"
+          onClick={onClose}
+        ></button>
       </div>
     </section>
   );

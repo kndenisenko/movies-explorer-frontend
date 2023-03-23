@@ -12,13 +12,13 @@ function Main() {
   // console.log('main')
 
   return (
-  <>
-    <Hero />
-    <Navigation />
-    <About />
-    <Tech />
-    <Student />
-  </>
+    <>
+      <Hero />
+      <Navigation />
+      <About />
+      <Tech />
+      <Student />
+    </>
   );
 }
 

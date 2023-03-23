@@ -29,11 +29,11 @@
   line-height: 16px;
   font-weight: 500;
   color: white;
-  transition: all, .3s
+  transition: all, 0.3s;
 }
 
 .navigation__list-link:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 @media (width <= 348px) {

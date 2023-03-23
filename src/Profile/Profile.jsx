@@ -6,7 +6,7 @@ import { pathes } from "../utils/settings";
 import { CurrentUserContext } from "../utils/CurrentUserContext";
 
 function Profile({ onUpdateUser, handleSignOut }) {
-  console.log('profile')
+  console.log("profile");
   const [name, setName] = React.useState("Виталий");
   const [email, setEmail] = React.useState("pochta@yandex.ru");
   const currentUser = React.useContext(CurrentUserContext);
@@ -23,7 +23,7 @@ function Profile({ onUpdateUser, handleSignOut }) {
     event.preventDefault();
     console.log(name, email);
 
-    onUpdateUser({ name, email, });
+    onUpdateUser({ name, email });
   }
 
   return (
@@ -33,7 +33,7 @@ function Profile({ onUpdateUser, handleSignOut }) {
         <div className="profile__container">
           <p className="profile__container-name">Имя</p>
           <input
-          className="profile__input"
+            className="profile__input"
             type="text"
             name="name"
             placeholder="Имя"
@@ -48,7 +48,7 @@ function Profile({ onUpdateUser, handleSignOut }) {
         <div className="profile__container">
           <p className="profile__container-name">E-mail</p>
           <input
-          className="profile__input"
+            className="profile__input"
             type="text"
             name="email"
             placeholder="pochta@yandex.ru"
@@ -64,15 +64,12 @@ function Profile({ onUpdateUser, handleSignOut }) {
           Редактировать
         </button>
 
-
         <Link to="/" className="profile__logout" onClick={handleSignOut}>
           Выйти из аккаунта
         </Link>
-
-
       </form>
     </section>
   );
 }
 
-export default Profile
+export default Profile;

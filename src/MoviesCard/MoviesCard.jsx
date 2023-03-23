@@ -10,7 +10,7 @@ export default function MoviesCard({
   isSavedMoviesSection,
   isMainMoviesSection,
   savedMovies,
-  token
+  token,
 }) {
   const [isSaved, setIsSaved] = useState(false);
   const [savedMovie, setSavedMovie] = useState([]);
@@ -22,33 +22,32 @@ export default function MoviesCard({
       ? "0" + (movie.duration % 60)
       : movie.duration % 60);
 
+  // console.log(handleSaveMovie)
 
-      // console.log(handleSaveMovie)
-
-      function handleSaveMovie(movie) {
-        // console.log('фильм сохранён: ', token, movie)
-        MainApi.saveMovie(
-          movie.country,
-          movie.director,
-          movie.duration,
-          movie.year,
-          movie.description,
-          url + movie.image.url,
-          movie.trailerLink,
-          movie.nameRU,
-          movie.nameEN,
-          url + movie.image.url,
-          movie.id,
-          token
-        )
-          .then((newSavedMovie) => {
-            setSavedMovie(newSavedMovie);
-            setIsSaved(true);
-          })
-          .catch((err) => console.log(`Ошибка сохранения фильма handleSaveMovie: ${err}`));
-      }
-
-
+  function handleSaveMovie(movie) {
+    // console.log('фильм сохранён: ', token, movie)
+    MainApi.saveMovie(
+      movie.country,
+      movie.director,
+      movie.duration,
+      movie.year,
+      movie.description,
+      url + movie.image.url,
+      movie.trailerLink,
+      movie.nameRU,
+      movie.nameEN,
+      url + movie.image.url,
+      movie.id,
+      token
+    )
+      .then((newSavedMovie) => {
+        setSavedMovie(newSavedMovie);
+        setIsSaved(true);
+      })
+      .catch((err) =>
+        console.log(`Ошибка сохранения фильма handleSaveMovie: ${err}`)
+      );
+  }
 
   function handleUnSaveMovie(savedMovie) {
     setIsSaved(false);
@@ -59,14 +58,19 @@ export default function MoviesCard({
         .then((res) => {
           // console.log('Фильм удалён:', res);
         })
-        .catch((err) => console.log(`Ошибка удаления фильма unSaveMovie: ${err}`));
+        .catch((err) =>
+          console.log(`Ошибка удаления фильма unSaveMovie: ${err}`)
+        );
     }
   }
 
   useEffect(() => {
     let found = false;
     savedMovies.forEach((item) => {
-      if ((isMainMoviesSection && item.movieId === movie.id) || (!isMainMoviesSection && item.movieId === movie.movieId)) {
+      if (
+        (isMainMoviesSection && item.movieId === movie.id) ||
+        (!isMainMoviesSection && item.movieId === movie.movieId)
+      ) {
         setIsSaved(true);
         setSavedMovie(item);
         found = true;
@@ -77,12 +81,7 @@ export default function MoviesCard({
       setIsSaved(false);
       setSavedMovie(null);
     }
-  }, [
-    savedMovies,
-    isMainMoviesSection,
-    movie.id,
-    movie.movieId,
-  ]);
+  }, [savedMovies, isMainMoviesSection, movie.id, movie.movieId]);
 
   return (
     <>
@@ -99,15 +98,19 @@ export default function MoviesCard({
           />
         </a>
 
-
         <div className="moviescard__info">
           <p className="moviescard__title">{movie.nameRU}</p>
           {isMainMoviesSection && !isSaved ? (
-  <button className="moviescard__save" onClick={() => handleSaveMovie(movie)} />
-) : (
-  <div className="moviescard__saved" onClick={(event) => handleUnSaveMovie(savedMovie)} />
-)}
-
+            <button
+              className="moviescard__save"
+              onClick={() => handleSaveMovie(movie)}
+            />
+          ) : (
+            <div
+              className="moviescard__saved"
+              onClick={(event) => handleUnSaveMovie(savedMovie)}
+            />
+          )}
         </div>
         <p className="moviescard__time">{time}</p>
       </div>

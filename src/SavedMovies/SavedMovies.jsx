@@ -57,15 +57,12 @@ export default function SavedMovies({
   savedMovies,
   findFilms,
   checkedToggle,
-  token
+  token,
 }) {
-  console.log(savedMovies)
+  console.log(savedMovies);
   return (
     <>
-      <SearchForm
-        findFilms={findFilms}
-        checkedToggle={checkedToggle}
-      />
+      <SearchForm findFilms={findFilms} checkedToggle={checkedToggle} />
 
       <MoviesCardList
         recivedMovies={savedMovies}
@@ -80,4 +77,3 @@ export default function SavedMovies({
     </>
   );
 }
-

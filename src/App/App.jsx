@@ -1,28 +1,28 @@
-import './App.css';
+import "./App.css";
 
 // импорт компонентов react
-import { React, useState, useEffect } from 'react';
+import { React, useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { CurrentUserContext } from "../utils/CurrentUserContext";
 
 // Иммпорт глобальных переменных и JS-компонентов
-import ProtectedRoute from "../utils/ProtectedRoute.js"
-import { pathes, urls } from '../utils/settings';
+import ProtectedRoute from "../utils/ProtectedRoute.js";
+import { pathes, urls } from "../utils/settings";
 import * as Auth from "../utils/Auth";
-import { MainApi } from '../utils/MainApi';
-import { MoviesApi } from '../utils/MoviesApi';
+import { MainApi } from "../utils/MainApi";
+import { MoviesApi } from "../utils/MoviesApi";
 
 // импорт компонентов сайта
 import Header from "../Header/Header";
-import Main from "../Main/Main.jsx"
-import Footer from '../Footer/Footer';
-import Register from '../Register/Register';
-import Login from '../Login/Login';
-import Profile from '../Profile/Profile';
-import NotFound from '../NotFound/NotFound';
-import Movies from '../Movies/Movies';
-import SavedMovies from '../SavedMovies/SavedMovies';
-import Preloader from '../Preloader/Preloader';
+import Main from "../Main/Main.jsx";
+import Footer from "../Footer/Footer";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
+import Profile from "../Profile/Profile";
+import NotFound from "../NotFound/NotFound";
+import Movies from "../Movies/Movies";
+import SavedMovies from "../SavedMovies/SavedMovies";
+import Preloader from "../Preloader/Preloader";
 
 function App() {
   const history = useNavigate();
@@ -48,7 +48,6 @@ function App() {
   const [copyRecivedMovies, setCopyRecivedMovies] = useState([]);
   const [isToggleActiveMovies, setIsToggleActiveMovies] = useState([]);
 
-
   const [token, setToken] = useState("");
 
   function checkToken() {
@@ -63,8 +62,8 @@ function App() {
           }
         })
         .catch((err) => {
-          console.log('token when error', token)
-          console.log(`Ошибка checkToken: ${err}`)
+          console.log("token when error", token);
+          console.log(`Ошибка checkToken: ${err}`);
         });
     }
   }
@@ -87,7 +86,7 @@ function App() {
     return Auth.login(email, password)
       .then((data) => {
         if (data.token) {
-          console.log('handleLogin data', data);
+          console.log("handleLogin data", data);
           localStorage.setItem("jwt", data.token);
           setIsUserLoggedIn(true);
           setToken(data.token);
@@ -121,28 +120,30 @@ function App() {
           setCounter(5);
         }
       })
-      .catch((err) => console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`));
+      .catch((err) =>
+        console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`)
+      );
   }, [innerWidth]);
 
-// GET MOAR
-function buttonMore() {
-  if (window.innerWidth >= 1140) {
-    setCounter(counter + 3);
-    if (counter >= recivedMovies.length) {
-      setMoreMovies(false);
-    }
-  } else if (window.innerWidth <= 1140 && window.innerWidth >= 768) {
-    setCounter(counter + 2);
-    if (counter >= recivedMovies.length) {
-      setMoreMovies(false);
-    }
-  } else if (window.innerWidth <= 765) {
-    setCounter(counter + 1);
-    if (counter >= recivedMovies.length) {
-      setMoreMovies(false);
+  // GET MOAR
+  function buttonMore() {
+    if (window.innerWidth >= 1140) {
+      setCounter(counter + 3);
+      if (counter >= recivedMovies.length) {
+        setMoreMovies(false);
+      }
+    } else if (window.innerWidth <= 1140 && window.innerWidth >= 768) {
+      setCounter(counter + 2);
+      if (counter >= recivedMovies.length) {
+        setMoreMovies(false);
+      }
+    } else if (window.innerWidth <= 765) {
+      setCounter(counter + 1);
+      if (counter >= recivedMovies.length) {
+        setMoreMovies(false);
+      }
     }
   }
-}
   // Обращение к пользовательскому апи, не к яндексу
   useEffect(() => {
     if (token) {
@@ -160,11 +161,11 @@ function buttonMore() {
             setCounter(5);
           }
         })
-        .catch((err) => console.log(`Ошибка загрузки фильмов (апи юзера MainApi): ${err}`));
+        .catch((err) =>
+          console.log(`Ошибка загрузки фильмов (апи юзера MainApi): ${err}`)
+        );
     }
   }, [innerWidth, token]);
-
-
 
   function handleSignOut() {
     setIsUserLoggedIn(false);
@@ -172,88 +173,85 @@ function buttonMore() {
   }
 
   function findFilms(inputSearchForm) {
-    console.log('findFilms', inputSearchForm)
+    console.log("findFilms", inputSearchForm);
   }
 
   function onUpdateUser(name, email) {
-    console.log('onUpdateUser', name, email);
+    console.log("onUpdateUser", name, email);
   }
 
   function checkedToggle(isToggleActive) {
-    console.log('toggle state is:', isToggleActive);
-
+    console.log("toggle state is:", isToggleActive);
   }
 
   return (
-  <div className="page">
-    <CurrentUserContext.Provider value={currentUser}>
-      <Routes>
-
-        {/* главная страница */}
-        <Route path={pathes.main}
-          element={
-            <>
-              <Header
-              isUserLoggedIn={isUserLoggedIn} />
-              <Main />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route path={pathes.register}
-          element={
-          <Register
-          handleRegister={handleRegister}
-          errorMessage={errorMessage} />
-          }
-        />
-
-        <Route path={pathes.login}
-          element={
-          <Login
-          handleLogin={handleLogin}
+    <div className="page">
+      <CurrentUserContext.Provider value={currentUser}>
+        <Routes>
+          {/* главная страница */}
+          <Route
+            path={pathes.main}
+            element={
+              <>
+                <Header isUserLoggedIn={isUserLoggedIn} />
+                <Main />
+                <Footer />
+              </>
+            }
           />
-          }
-        />
 
-        <Route path={pathes.profile}
-          element={
-            <>
-              <Header
-              isUserLoggedIn={isUserLoggedIn } />
-              <Profile
-              handleSignOut={handleSignOut}
-              onUpdateUser={onUpdateUser}
+          <Route
+            path={pathes.register}
+            element={
+              <Register
+                handleRegister={handleRegister}
+                errorMessage={errorMessage}
               />
-          </>
-          }
-        />
+            }
+          />
 
-        <Route path={pathes.movies}
+          <Route
+            path={pathes.login}
+            element={<Login handleLogin={handleLogin} />}
+          />
 
-          element={
-            <>
-            <Header isUserLoggedIn={isUserLoggedIn} />
-            <Movies
-            isLoading={isLoading}
-            recivedMovies={recivedMovies}
-            counter={counter}
-            moreMovies={moreMovies}
-            buttonMore={buttonMore}
-            isSavedMoviesSection={isSavedMoviesSection}
-            isMainMoviesSection={isMainMoviesSection}
-            savedMovies={savedMovies}
-            findFilms={findFilms}
-            checkedToggle={checkedToggle}
-            token={token}
-            />
-            <Footer />
-            </>
-          }
-        />
+          <Route
+            path={pathes.profile}
+            element={
+              <>
+                <Header isUserLoggedIn={isUserLoggedIn} />
+                <Profile
+                  handleSignOut={handleSignOut}
+                  onUpdateUser={onUpdateUser}
+                />
+              </>
+            }
+          />
 
-<Route
+          <Route
+            path={pathes.movies}
+            element={
+              <>
+                <Header isUserLoggedIn={isUserLoggedIn} />
+                <Movies
+                  isLoading={isLoading}
+                  recivedMovies={recivedMovies}
+                  counter={counter}
+                  moreMovies={moreMovies}
+                  buttonMore={buttonMore}
+                  isSavedMoviesSection={isSavedMoviesSection}
+                  isMainMoviesSection={isMainMoviesSection}
+                  savedMovies={savedMovies}
+                  findFilms={findFilms}
+                  checkedToggle={checkedToggle}
+                  token={token}
+                />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
             path={pathes.savedMovies}
             element={
               <>
@@ -277,11 +275,10 @@ function buttonMore() {
             }
           />
 
-        <Route path="*" element={<NotFound />} />
-
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </CurrentUserContext.Provider>
-  </div>
+    </div>
   );
 }
 

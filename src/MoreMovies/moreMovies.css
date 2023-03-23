@@ -10,7 +10,7 @@
   width: 320px;
   height: 36px;
   color: white;
-  background-color: #2F2F2F;
+  background-color: #2f2f2f;
   border: none;
   border-radius: 6px;
   padding: 0;
@@ -18,8 +18,8 @@
 }
 
 .moremovies__button:hover {
-  opacity: .7;
-  transition: opacity .2s linear;
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
   cursor: pointer;
 }
 
@@ -29,7 +29,7 @@
   }
 }
 
-@media  (width <= 320px) {
+@media (width <= 320px) {
   .moremovies {
     padding: 50px 0 100px 0;
   }

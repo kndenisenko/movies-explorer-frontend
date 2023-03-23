@@ -13,7 +13,7 @@
 .movies__search-form {
   font-size: 14px;
   line-height: 18px;
-  color: #8B8B8B;
+  color: #8b8b8b;
   width: 84.5%;
   height: 50px;
   background-color: var(--bg-color);
@@ -30,4 +30,3 @@
   height: 44px;
   cursor: pointer;
 }
-

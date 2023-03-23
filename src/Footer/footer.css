@@ -1,17 +1,17 @@
 .footer {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas:
     "text text"
     "copy navy";
-    background-color: var(--second-bg-color);
+  background-color: var(--second-bg-color);
   padding: 79px 70px 20px 70px;
 }
 
 .footer__text {
   font-size: 13px;
   font-weight: 400;
-  color: #8B8B8B;
+  color: #8b8b8b;
   grid-area: text;
   border-bottom: 1px solid #424242;
   color: #8b8b8b;
@@ -71,7 +71,7 @@
   .footer__copywright {
     font-size: 12px;
     text-align: center;
-    color: #8B8B8B;
+    color: #8b8b8b;
   }
 
   .footer__navy {
@@ -90,5 +90,4 @@
   .footer__copywright {
     margin: 32px 0 0 0;
   }
-
 }

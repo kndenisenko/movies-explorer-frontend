@@ -32,8 +32,8 @@
 }
 
 .moviescard__save:hover {
-  opacity: .7;
-  transition: opacity .2s linear;
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
   cursor: pointer;
 }
 
@@ -49,8 +49,8 @@
 }
 
 .moviescard__saved:hover {
-  opacity: .7;
-  transition: opacity .2s linear;
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
   cursor: pointer;
 }
 
@@ -67,7 +67,7 @@
   width: 37px;
   height: 13px;
   background-color: transparent;
-  color: #8B8B8B;
+  color: #8b8b8b;
   font-size: 11px;
   line-height: 10px;
   margin: 15px 0 0 5px;
@@ -79,12 +79,11 @@
   }
 
   .moviescard__info {
-    margin: 25px 0 0  0;
+    margin: 25px 0 0 0;
   }
 }
 
 @media (width <= 320px) {
-
   .moviescard__image {
     height: 168px;
   }
