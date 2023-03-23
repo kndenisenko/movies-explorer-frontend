@@ -5,10 +5,10 @@ import hoba from "../images/hoba.png"
 import React from "react"
 
 function Student() {
-  console.log('student')
+  // console.log('student')
 
   return (
-    <section className="student">
+    <section className="student" id="student">
       <h2 className="student__header">Студент</h2>
       <div className="student__info">
         <div className="student__info-container">
@@ -22,9 +22,9 @@ function Student() {
       <div className="student__portfolio">
         <h3 className="student__portfolio-header">Портфолио</h3>
         <ul className="student__portfolio-list">
-          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="a.com">Статичный сайт</a></li>
-          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="a.com">Адаптивный сайт</a></li>
-          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="a.com">Одностраничное приложение</a></li>
+          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="https://probaland.ru/static/">Статичный сайт</a></li>
+          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="https://probaland.ru/adaptive/">Адаптивный сайт</a></li>
+          <li className="student__portfolio-list-item"><a className="student__portfolio-list-link" href="https://badass.students.nomoredomains.club">Одностраничное приложение</a></li>
         </ul>
       </div>
     </section>

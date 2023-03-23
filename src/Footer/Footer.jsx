@@ -3,7 +3,7 @@ import "./footer.css"
 import React from "react";
 
 function Footer() {
-  console.log('Footer')
+  // console.log('Footer')
 
   return (
     <section className="footer">

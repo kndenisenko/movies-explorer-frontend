@@ -9,7 +9,7 @@ import Navigation from "../Burger/Burger";
 import { pathes } from "../utils/settings"
 
 function Header({ isUserLoggedIn}) {
-  console.log('Header')
+  // console.log('Header')
 
   const [isBurger, setisBurger] = useState(false);
 
@@ -32,7 +32,9 @@ function Header({ isUserLoggedIn}) {
         </Link>
         <nav className="navy__logged">
           <NavLink to={pathes.movies} className="navy__logged_link"><p className="navy__logged_link_text">Фильмы</p></NavLink>
+
           <NavLink to={pathes.savedMovies} className="navy__logged_link"><p className="navy__logged_link_text">Сохранённые фильмы</p></NavLink>
+
         </nav>
           <Link className="header__account-button" to={pathes.profile}>
             <p className="header__account-button-text">Аккаунт</p>

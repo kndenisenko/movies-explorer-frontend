@@ -3,10 +3,10 @@ import "./about.css"
 import React from "react"
 
 function About() {
-  console.log('About')
+  // console.log('About')
 
   return (
-    <section className="about">
+    <section className="about" id="about">
       <h2 className="about__header" >О проекте</h2>
       <ul className="about__list">
         <li className="about__list-item">

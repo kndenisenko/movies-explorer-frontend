@@ -9,7 +9,7 @@ import Student from "../Student/Student";
 import React from "react";
 
 function Main() {
-  console.log('main')
+  // console.log('main')
 
   return (
   <>

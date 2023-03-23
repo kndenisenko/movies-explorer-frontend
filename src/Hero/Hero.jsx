@@ -3,7 +3,7 @@ import "./hero.css"
 import React from "react";
 
 function Hero() {
-  console.log('Hero')
+  // console.log('Hero')
 
   return (
     <section className="hero">

@@ -3,11 +3,17 @@
 // список путей сайта
 const pathes = {
   main: '/',
-  movies: 'movies',
-  savedMovies: 'saved-movies',
-  profile: 'profile',
-  register: 'register',
-  login: 'login'
+  movies: '/movies',
+  savedMovies: '/saved-movies',
+  profile: '/profile',
+  register: '/register',
+  login: '/login'
 }
 
-export { pathes }
+const urls = {
+  superSecretUrl: 'https://api.nomoreparties.co',
+  myapi: 'https://api.badass.nomoredomains.club',
+  myapidev: 'http://localhost:3001'
+}
+
+export { pathes, urls }

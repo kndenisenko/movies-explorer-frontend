@@ -1,5 +1,7 @@
-// const BASE_URL = "https://badass.nomoredomains.club";
-const BASE_URL = "http://localhost:3001";
+import { urls } from '../utils/settings.js'
+
+const BASE_URL = urls.myapi;
+// const BASE_URL = "http://localhost:3001";
 
 // регистрация
 export const registration = (name, email, password) => {
@@ -20,6 +22,16 @@ export const login = (email, password) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ password, email }),
+  }).then(checkResponse);
+};
+
+export const token = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: 'Bearer ' + token,
+    },
   }).then(checkResponse);
 };
 
