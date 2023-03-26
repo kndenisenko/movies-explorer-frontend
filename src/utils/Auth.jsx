@@ -1,4 +1,4 @@
-import { urls } from "../utils/settings.js";
+import { urls } from "../utils/const.js";
 
 const BASE_URL = urls.myapi;
 // const BASE_URL = "http://localhost:3001";

@@ -1,6 +1,6 @@
 // Запросы к нашему Api
 
-import { urls } from "../utils/settings.js";
+import { urls } from "../utils/const.js";
 
 class Api {
   constructor({ baseUrl, headers }) {

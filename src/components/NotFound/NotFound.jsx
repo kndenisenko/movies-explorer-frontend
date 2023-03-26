@@ -2,7 +2,7 @@ import "./NotFound.css";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { pathes } from "../utils/const";
+import { pathes } from "../../utils/const";
 
 function NotFound() {
   console.log("Error-404");

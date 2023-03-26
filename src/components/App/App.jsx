@@ -3,14 +3,14 @@ import "./App.css";
 // импорт компонентов react
 import { React, useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
-import { CurrentUserContext } from "../utils/CurrentUserContext";
+import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 // Иммпорт глобальных переменных и JS-компонентов
-import ProtectedRoute from "../utils/ProtectedRoute.js";
-import { pathes, urls } from "../utils/const";
-import * as Auth from "../utils/Auth";
-import { MainApi } from "../utils/MainApi";
-import { MoviesApi } from "../utils/MoviesApi";
+import ProtectedRoute from "../../utils/ProtectedRoute.js";
+import { pathes, urls } from "../../utils/const";
+import * as Auth from "../../utils/Auth";
+import { MainApi } from "../../utils/MainApi";
+import { MoviesApi } from "../../utils/MoviesApi";
 
 // импорт компонентов сайта
 import Header from "../Header/Header";

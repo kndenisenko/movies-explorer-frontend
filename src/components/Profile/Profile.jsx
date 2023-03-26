@@ -2,8 +2,8 @@ import "./profile.css";
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { pathes } from "../utils/const";
-import { CurrentUserContext } from "../utils/CurrentUserContext";
+import { pathes } from "../../utils/const";
+import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 function Profile({ onUpdateUser, handleSignOut }) {
   console.log("profile");

@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--hero-color);
-  background-image: url(../images/hero.png);
+  background-image: url(../../images/hero.png);
   background-position: center 40%;
   background-size: 320px 320px;
   background-repeat: no-repeat;

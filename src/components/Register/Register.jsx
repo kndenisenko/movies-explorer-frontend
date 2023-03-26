@@ -2,7 +2,7 @@ import "./register.css";
 
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import { pathes } from "../utils/const";
+import { pathes } from "../../utils/const";
 
 function Register({ handleRegister, errorMessage }) {
   console.log("Register");

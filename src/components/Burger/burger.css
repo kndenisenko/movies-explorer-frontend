@@ -61,7 +61,7 @@
   width: 100px;
   height: 32px;
   border: none;
-  background-image: url(../images/user.png);
+  background-image: url(../../images/user.png);
   background-color: var(--second-bg-color);
   margin: 593px 0 90px 0;
 }
@@ -78,7 +78,7 @@
   border: none;
   top: 22.5px;
   right: 22.5px;
-  background-image: url(../images/close.png);
+  background-image: url(../../images/close.png);
   background-color: var(--second-bg-color);
   background-repeat: no-repeat;
   margin: 0;

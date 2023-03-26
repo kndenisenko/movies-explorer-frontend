@@ -1,6 +1,6 @@
 import "./student.css";
-import photo from "../images/photo.png";
-import hoba from "../images/hoba.png";
+import photo from "../../images/photo.png";
+import hoba from "../../images/hoba.png";
 
 import React from "react";
 

@@ -141,7 +141,7 @@
     visibility: visible;
     width: 44px;
     height: 44px;
-    background-image: url(../images/burger.png);
+    background-image: url(../../images/burger.png);
     background-color: var(--second-bg-color);
     border: none;
     margin: 15px 30px 15px 0;

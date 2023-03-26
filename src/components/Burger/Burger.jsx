@@ -2,9 +2,9 @@ import "./burger.css";
 
 import { React } from "react";
 import { Link } from "react-router-dom";
-import user from "../images/user.png";
+import user from "../../images/user.png";
 
-import { pathes } from "../utils/settings";
+import { pathes } from "../../utils/const";
 
 function Burger({ isOpen, onClose }) {
   return (

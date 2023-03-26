@@ -2,8 +2,8 @@ import "./moviesCard.css";
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { urls } from "../utils/const";
-import { MainApi } from "../utils/MainApi";
+import { urls } from "../../utils/const";
+import { MainApi } from "../../utils/MainApi";
 
 export default function MoviesCard({
   movie,

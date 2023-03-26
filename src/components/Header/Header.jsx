@@ -2,11 +2,11 @@ import "./Header.css";
 
 import { React, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../images/logo.svg";
-import user from "../images/user.png";
+import logo from "../../images/logo.svg";
+import user from "../../images/user.png";
 import Navigation from "../Burger/Burger";
 
-import { pathes } from "../utils/const";
+import { pathes } from "../../utils/const";
 
 function Header({ isUserLoggedIn }) {
   // console.log('Header')
