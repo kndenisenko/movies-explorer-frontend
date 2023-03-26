@@ -44,7 +44,9 @@ function Searchform({ findFilms, checkedToggle }) {
           onClick={checkedToggle(checked)}
           onChange={iosToggleChange}
           onColor="#3DDC84"
-          handleDiameter={24}
+          height={20}
+            width={36}
+          handleDiameter={16}
           uncheckedIcon={false}
           checkedIcon={false}
         />

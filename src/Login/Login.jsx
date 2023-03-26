@@ -6,7 +6,8 @@ import { pathes } from "../utils/settings";
 // import logo from "../images/logo.png";
 
 function Login({ handleLogin }) {
-  console.log("login");
+  // console.log("login");
+
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
 
@@ -59,9 +60,9 @@ function Login({ handleLogin }) {
           </button>
         </form>
         <div className="login__bottom-container">
-          <p className="login__bottom-container-text">Уже зарегистрированы?</p>
-          <Link to={pathes.login} className="login__bottom-container-link">
-            Войти
+          <p className="login__bottom-container-text">Ещё не зарегистрированы?</p>
+          <Link to={pathes.register} className="login__bottom-container-link">
+            Регистрация
           </Link>
         </div>
       </div>

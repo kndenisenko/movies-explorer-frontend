@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--second-bg-color);
+  background-color: var(--bg-color);
   padding: 70px 0 70px 0;
 }
 
@@ -15,6 +15,7 @@
 
 .login__logo {
   display: block;
+  align-self: flex-start;
   width: 38px;
   height: 38px;
   background-image: url(../images/logo.png);
@@ -23,6 +24,7 @@
 }
 
 .login__header {
+  align-self: flex-start;
   font-size: 24px;
   font-weight: 400;
   margin: 0 0 40px 0;
@@ -117,10 +119,12 @@
   }
 
   .login__logo {
+    align-self: center;
     margin: 0 0 51px 0;
   }
 
   .login__header {
+    align-self: center;
     margin: 0 0 81px 0;
   }
 
@@ -156,8 +160,8 @@
 
   .login__button {
     font-size: 12px;
-    padding: 15px 68px 15px 68px;
-    margin: 208px 0 0 0;
+    padding: 15px 110px 15px 110px;
+    margin: 280px 0 0 0;
   }
 
   .login__bottom-container {
@@ -166,5 +170,6 @@
 
   .login__bottom-container-text {
     font-size: 12px;
+    margin: 1px 7px 0 0;
   }
 }

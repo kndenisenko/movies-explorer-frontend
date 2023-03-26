@@ -1,10 +1,11 @@
 import "./movies.css";
 
-import React from "react";
+import {React, useState } from "react";
 
 // Компоненты блока с фильмами
 import Searchform from "../Searchform/Searchform";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
+// import { useState } from "react";
 
 function Movies({
   handleSaveMovie,
@@ -22,6 +23,8 @@ function Movies({
   token,
 }) {
   // console.log('Movies');
+  // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  // setIsUserLoggedIn(true);
 
   return (
     <>
