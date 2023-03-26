@@ -3,7 +3,7 @@ import "./login.css";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import { pathes } from "../utils/settings";
-// import logo from "../images/logo.png";
+// import logo from "../images/logo.svg";
 
 function Login({ handleLogin }) {
   // console.log("login");

@@ -2,7 +2,7 @@ import "./Header.css";
 
 import { React, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../images/logo.svg";
 import user from "../images/user.png";
 import Navigation from "../Burger/Burger";
 
