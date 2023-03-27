@@ -6,7 +6,7 @@ function Footer() {
   // console.log('Footer')
 
   return (
-    <section className="footer">
+    <footer className="footer">
       <p className="footer__text">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </p>
@@ -19,7 +19,7 @@ function Footer() {
           GitHub
         </a>
       </nav>
-    </section>
+    </footer>
   );
 }
 

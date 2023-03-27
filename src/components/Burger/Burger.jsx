@@ -2,7 +2,7 @@ import "./burger.css";
 
 import { React } from "react";
 import { Link } from "react-router-dom";
-import user from "../../images/user.png";
+import user from "../../images/user.svg";
 
 import { pathes } from "../../utils/const";
 
@@ -48,7 +48,7 @@ function Burger({ isOpen, onClose }) {
           onClick={onClose}
         >
           <p className="burger__navigation-button-text">Аккаунт</p>
-          <img className="burger__navigation-button-icon" src={user} alt="" />
+          <img className="burger__navigation-button-icon" src={user} alt="Иконка навигации-бургера" />
         </Link>
         <button
           className="burger__navigation-close-button"

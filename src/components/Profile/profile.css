@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--second-bg-color);
+  background-color: var(--bg-color);
   padding: 70px 0 70px 0;
 }
 
@@ -55,7 +55,7 @@
 .profile__save-changes {
   font-size: 13px;
   color: white;
-  background-color: var(--second-bg-color);
+  background-color: var(--bg-color);
   border: none;
   cursor: pointer;
   transition: all, 0.3s;

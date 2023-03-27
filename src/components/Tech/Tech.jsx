@@ -1,6 +1,7 @@
 import "./tech.css";
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Tech() {
   // console.log('Tech')
@@ -17,54 +18,65 @@ function Tech() {
       </div>
       <ul className="tech__list">
         <li className="tech__list-item">
-          <a
+          <Link
             className="tech__list-link"
-            href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/HTML_basics"
+            to="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/HTML_basics"
+            target={"_blank"}
           >
             HTML
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a
+          <Link
             className="tech__list-link"
-            href="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/CSS_basics"
+            to="https://developer.mozilla.org/ru/docs/Learn/Getting_started_with_the_web/CSS_basics"
+            target={"_blank"}
           >
             CSS
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a className="tech__list-link" href="https://learn.javascript.ru/">
+          <Link className="tech__list-link"
+            to="https://learn.javascript.ru/"
+            target={"_blank"}
+          >
             JS
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a
+          <Link
             className="tech__list-link"
-            href="https://doka.guide/tools/react-and-alternatives/"
+            to="https://doka.guide/tools/react-and-alternatives/"
+            target={"_blank"}
           >
             React
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a
+          <Link
             className="tech__list-link"
-            href="https://developer.mozilla.org/ru/docs/Learn/Tools_and_testing/GitHub"
+            to="https://developer.mozilla.org/ru/docs/Learn/Tools_and_testing/GitHub"
+            target={"_blank"}
           >
             Git
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a
+          <Link
             className="tech__list-link"
-            href="https://developer.mozilla.org/ru/docs/Learn/Server-side/Express_Nodejs"
+            to="https://developer.mozilla.org/ru/docs/Learn/Server-side/Express_Nodejs"
+            target={"_blank"}
           >
             Express.js
-          </a>
+          </Link>
         </li>
         <li className="tech__list-item">
-          <a className="tech__list-link" href="https://www.mongodb.com/">
+          <Link className="tech__list-link"
+            to="https://www.mongodb.com/"
+            target={"_blank"}
+          >
             mongoDB
-          </a>
+          </Link>
         </li>
       </ul>
     </section>

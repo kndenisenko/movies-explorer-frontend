@@ -3,7 +3,7 @@ import "./Header.css";
 import { React, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
-import user from "../../images/user.png";
+import user from "../../images/user.svg";
 import Navigation from "../Burger/Burger";
 
 import { pathes } from "../../utils/const";
@@ -41,7 +41,7 @@ function Header({ isUserLoggedIn }) {
         </nav>
         <Link className="header__account-button" to={pathes.profile}>
           <p className="header__account-button-text">Аккаунт</p>
-          <img className="header__account-button-icon" src={user} alt="" />
+          <img className="header__account-button-icon" src={user} alt="Аккаунт пользователя" />
         </Link>
         <button
           className="header__burger"

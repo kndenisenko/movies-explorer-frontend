@@ -3,6 +3,7 @@ import photo from "../../images/photo.png";
 import hoba from "../../images/hoba.png";
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Student() {
   // console.log('student')
@@ -38,28 +39,31 @@ function Student() {
         <h3 className="student__portfolio-header">Портфолио</h3>
         <ul className="student__portfolio-list">
           <li className="student__portfolio-list-item">
-            <a
+            <Link
               className="student__portfolio-list-link"
-              href="https://probaland.ru/static/"
+              to="https://probaland.ru/static/"
+              target={"_blank"}
             >
               Статичный сайт
-            </a>
+            </Link>
           </li>
           <li className="student__portfolio-list-item">
-            <a
+            <Link
               className="student__portfolio-list-link"
-              href="https://probaland.ru/adaptive/"
+              to="https://probaland.ru/adaptive/"
+              target={"_blank"}
             >
               Адаптивный сайт
-            </a>
+            </Link>
           </li>
           <li className="student__portfolio-list-item">
-            <a
+            <Link
               className="student__portfolio-list-link"
-              href="https://badass.students.nomoredomains.club"
+              to="https://badass.students.nomoredomains.club"
+              target={"_blank"}
             >
               Одностраничное приложение
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

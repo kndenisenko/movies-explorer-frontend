@@ -14,7 +14,12 @@
   height: 201px;
   object-fit: cover;
   border-radius: 6px;
+  transition: all, 0.3s;
   margin: 25px 0 0 0;
+}
+
+.moviescard__image:hover {
+  opacity: 0.6;
 }
 
 .moviescard__info {

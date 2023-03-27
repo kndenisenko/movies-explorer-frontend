@@ -39,7 +39,12 @@
   font-weight: 400;
   color: white;
   text-decoration: none;
+  transition: all, 0.3s;
   margin: 0 20px 0 0;
+}
+
+.footer__navy-link:hover {
+  opacity: 0.7;
 }
 
 .footer__navy-link:last-child {

@@ -61,7 +61,7 @@
   width: 100px;
   height: 32px;
   border: none;
-  background-image: url(../../images/user.png);
+  background-image: url(../../images/user.svg);
   background-color: var(--second-bg-color);
   margin: 593px 0 90px 0;
 }
@@ -78,7 +78,7 @@
   border: none;
   top: 22.5px;
   right: 22.5px;
-  background-image: url(../../images/close.png);
+  background-image: url(../../images/close.svg);
   background-color: var(--second-bg-color);
   background-repeat: no-repeat;
   margin: 0;
@@ -102,7 +102,7 @@
   color: white;
   transition: all, 0.3s;
   margin: auto 0 92px 0;
-  padding: 0 0 192px 0;
+  padding: 0 0 149px 0;
   width: 150px;
 }
 

@@ -20,7 +20,12 @@
   height: 38px;
   background-image: url(../../images/logo.svg);
   background-repeat: no-repeat;
+  transition: all, 0.3s;
   margin: 0 0 40px 0;
+}
+
+.login__logo:hover {
+  opacity: 0.7;
 }
 
 .login__header {
