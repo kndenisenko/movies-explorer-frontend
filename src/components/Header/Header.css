@@ -130,7 +130,7 @@
   }
 
   .navy__logged {
-    visibility: hidden;
+    display: none;
   }
 
   .header__account-button {
