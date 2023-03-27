@@ -1,11 +1,12 @@
 import "./profile.css";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { pathes } from "../../utils/const";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
+// import { useEffect } from "react";
 
-function Profile({ onUpdateUser, handleSignOut }) {
+function Profile({ onUpdateUser, handleSignOut, forceLogin }) {
   console.log("profile");
   const [name, setName] = React.useState("Виталий");
   const [email, setEmail] = React.useState("pochta@yandex.ru");
@@ -22,9 +23,12 @@ function Profile({ onUpdateUser, handleSignOut }) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(name, email);
-
     onUpdateUser({ name, email });
   }
+
+  useEffect(() => {
+    forceLogin();
+  }, []);
 
   return (
     <section className="profile">

@@ -1,6 +1,6 @@
 import "./movies.css";
 
-import {React, useState } from "react";
+import {React, useState, useEffect } from "react";
 
 // Компоненты блока с фильмами
 import Searchform from "../Searchform/Searchform";
@@ -21,10 +21,15 @@ function Movies({
   findFilms,
   checkedToggle,
   token,
+  forceLogin
 }) {
   // console.log('Movies');
   // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   // setIsUserLoggedIn(true);
+
+  useEffect(() => {
+    forceLogin();
+  }, []);
 
   return (
     <>

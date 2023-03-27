@@ -1,10 +1,10 @@
 import "./register.css";
 
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { pathes } from "../../utils/const";
 
-function Register({ handleRegister, errorMessage }) {
+function Register({ handleRegister, errorMessage, forceLogOut }) {
   console.log("Register");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -27,6 +27,11 @@ function Register({ handleRegister, errorMessage }) {
     console.log(name, email, password);
     handleRegister(name, email, password);
   }
+
+  useEffect(() => {
+    forceLogOut();;
+  }, []);
+
 
   return (
     <section className="register">

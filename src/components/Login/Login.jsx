@@ -1,11 +1,11 @@
 import "./login.css";
 
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { pathes } from "../../utils/const";
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, forceLogOut }) {
   // console.log("login");
 
   const [email, setEmail] = useState("");
@@ -24,6 +24,10 @@ function Login({ handleLogin }) {
     console.log(email, password);
     handleLogin(email, password);
   }
+
+  useEffect(() => {
+    forceLogOut();;
+  }, []);
 
   return (
     <section className="login">

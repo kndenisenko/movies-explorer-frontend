@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import user from "../../images/user.png";
@@ -8,7 +8,7 @@ import Navigation from "../Burger/Burger";
 
 import { pathes } from "../../utils/const";
 
-function Header({ isUserLoggedIn,    handleTempLogin }) {
+function Header({ isUserLoggedIn }) {
   // console.log('Header')
 
   const [isBurger, setisBurger] = useState(false);
@@ -23,10 +23,6 @@ function Header({ isUserLoggedIn,    handleTempLogin }) {
     document.body.style.overflow = "visible"; // включаем прокрутку при открытии бургера
     setisBurger(false);
   };
-
-  // function handleTempLogin() {
-  //   console.log('aa')
-  // }
 
   return isUserLoggedIn ? (
     <>
@@ -64,8 +60,7 @@ function Header({ isUserLoggedIn,    handleTempLogin }) {
           <NavLink to={pathes.register} className="navy__link">
             <p className="navy__link_text">Регистрация</p>
           </NavLink>
-          <NavLink className="navy__link_button" onClick={handleTempLogin}>
-          {/* <NavLink to={pathes.login} className="navy__link_button" > */}
+          <NavLink to={pathes.login} className="navy__link_button" >
             <p className="navy__link_button_text">Войти</p>
           </NavLink>
         </div>
