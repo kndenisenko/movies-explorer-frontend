@@ -8,7 +8,7 @@ import Navigation from "../Burger/Burger";
 
 import { pathes } from "../../utils/const";
 
-function Header({ isUserLoggedIn }) {
+function Header({ isUserLoggedIn,    handleTempLogin }) {
   // console.log('Header')
 
   const [isBurger, setisBurger] = useState(false);
@@ -23,6 +23,10 @@ function Header({ isUserLoggedIn }) {
     document.body.style.overflow = "visible"; // включаем прокрутку при открытии бургера
     setisBurger(false);
   };
+
+  // function handleTempLogin() {
+  //   console.log('aa')
+  // }
 
   return isUserLoggedIn ? (
     <>
@@ -60,7 +64,8 @@ function Header({ isUserLoggedIn }) {
           <NavLink to={pathes.register} className="navy__link">
             <p className="navy__link_text">Регистрация</p>
           </NavLink>
-          <NavLink to={pathes.login} className="navy__link_button">
+          <NavLink className="navy__link_button" onClick={handleTempLogin}>
+          {/* <NavLink to={pathes.login} className="navy__link_button" > */}
             <p className="navy__link_button_text">Войти</p>
           </NavLink>
         </div>

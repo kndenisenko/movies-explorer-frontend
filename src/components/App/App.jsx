@@ -184,6 +184,11 @@ function App() {
     console.log("toggle state is:", isToggleActive);
   }
 
+  function handleTempLogin() {
+    setIsUserLoggedIn(true);
+    console.log('aa')
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -193,7 +198,9 @@ function App() {
             path={pathes.main}
             element={
               <>
-                <Header isUserLoggedIn={isUserLoggedIn} />
+                <Header
+                handleTempLogin={handleTempLogin}
+                isUserLoggedIn={isUserLoggedIn} />
                 <Main />
                 <Footer />
               </>
