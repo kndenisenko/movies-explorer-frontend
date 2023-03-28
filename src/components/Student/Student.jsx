@@ -23,12 +23,13 @@ function Student() {
             заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
         </div>
-        <a
+        <Link
           className="student__info-whoops"
-          href="https://github.com/kndenisenko/"
+          to="https://github.com/kndenisenko/"
+          target={"_blank"}
         >
           Github
-        </a>
+        </Link>
         <img
           className="student__info-photo"
           src={photo}

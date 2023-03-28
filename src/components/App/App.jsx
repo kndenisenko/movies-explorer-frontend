@@ -184,17 +184,6 @@ function App() {
     console.log("toggle state is:", isToggleActive);
   }
 
-  function forceLogOut() {
-    setIsUserLoggedIn(false);
-    localStorage.removeItem("jwt");
-    console.log('Bye!')
-  }
-
-  function forceLogin() {
-    setIsUserLoggedIn(true);
-    console.log('welcome')
-  }
-
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -205,10 +194,8 @@ function App() {
             element={
               <>
                 <Header
-                // forceLogin={forceLogin}
                 isUserLoggedIn={isUserLoggedIn} />
-                <Main
-                forceLogOut={forceLogOut} />
+                <Main />
                 <Footer />
               </>
             }
@@ -219,7 +206,6 @@ function App() {
             element={
               <Register
                 handleRegister={handleRegister}
-                forceLogOut={forceLogOut}
                 errorMessage={errorMessage}
               />
             }
@@ -227,9 +213,7 @@ function App() {
 
           <Route
             path={pathes.login}
-            element={<Login handleLogin={handleLogin}
-            forceLogOut={forceLogOut}
-            />}
+            element={<Login handleLogin={handleLogin} />}
           />
 
           <Route
@@ -240,7 +224,6 @@ function App() {
                 <Profile
                   handleSignOut={handleSignOut}
                   onUpdateUser={onUpdateUser}
-                  forceLogin={forceLogin}
                 />
               </>
             }
@@ -263,7 +246,6 @@ function App() {
                   findFilms={findFilms}
                   checkedToggle={checkedToggle}
                   token={token}
-                  forceLogin={forceLogin}
                 />
                 <Footer />
               </>
@@ -288,7 +270,6 @@ function App() {
                   findFilms={findFilms}
                   checkedToggle={checkedToggle}
                   token={token}
-                  forceLogin={forceLogin}
                 />
                 <Footer />
               </>

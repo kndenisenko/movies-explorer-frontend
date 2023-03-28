@@ -58,11 +58,8 @@ export default function SavedMovies({
   findFilms,
   checkedToggle,
   token,
-  forceLogin
 }) {
   console.log(savedMovies);
-
-  forceLogin();
 
   return (
     <>

@@ -1,6 +1,6 @@
 import "./main.css";
 
-import {React, useEffect} from "react";
+import { React } from "react";
 
 import Hero from "../Hero/Hero";
 import Navigation from "../Navigation/Navigation";
@@ -10,12 +10,8 @@ import Student from "../Student/Student";
 
 
 
-function Main({ forceLogOut }) {
+function Main() {
   // console.log('main')
-
-  useEffect(() => {
-    forceLogOut();;
-  }, []);
 
   return (
     <>

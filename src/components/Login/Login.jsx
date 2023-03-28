@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { pathes } from "../../utils/const";
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin, forceLogOut }) {
+function Login({ handleLogin }) {
   // console.log("login");
 
   const [email, setEmail] = useState("");
@@ -25,9 +25,7 @@ function Login({ handleLogin, forceLogOut }) {
     handleLogin(email, password);
   }
 
-  useEffect(() => {
-    forceLogOut();;
-  }, []);
+
 
   return (
     <section className="login">

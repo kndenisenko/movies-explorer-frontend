@@ -21,15 +21,10 @@ function Movies({
   findFilms,
   checkedToggle,
   token,
-  forceLogin
 }) {
   // console.log('Movies');
   // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   // setIsUserLoggedIn(true);
-
-  useEffect(() => {
-    forceLogin();
-  }, []);
 
   return (
     <>

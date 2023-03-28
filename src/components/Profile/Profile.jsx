@@ -6,7 +6,7 @@ import { pathes } from "../../utils/const";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 // import { useEffect } from "react";
 
-function Profile({ onUpdateUser, handleSignOut, forceLogin }) {
+function Profile({ onUpdateUser, handleSignOut }) {
   console.log("profile");
   const [name, setName] = React.useState("Виталий");
   const [email, setEmail] = React.useState("pochta@yandex.ru");
@@ -25,10 +25,6 @@ function Profile({ onUpdateUser, handleSignOut, forceLogin }) {
     console.log(name, email);
     onUpdateUser({ name, email });
   }
-
-  useEffect(() => {
-    forceLogin();
-  }, []);
 
   return (
     <section className="profile">
