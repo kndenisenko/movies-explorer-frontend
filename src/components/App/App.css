@@ -1,0 +1,15 @@
+.page {
+  --bg-color: #202020;
+  --second-bg-color: #272727;
+  --hero-color: #073042;
+  --accent-color: #3ddc84;
+  --blue: #4285f4;
+  --red: #ee3465;
+  --form-header-color: #8b8b8b;
+
+  max-width: 1280px;
+  background-color: var(--bg-color);
+  font-family: inter, Arial, Helvetica, sans-serif;
+  color: white;
+  margin: 0 auto;
+}
