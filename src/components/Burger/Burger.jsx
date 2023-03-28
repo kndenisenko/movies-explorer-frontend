@@ -12,17 +12,12 @@ function Burger({ isOpen, onClose }) {
       className={`burger__navigation ${isOpen && "burger__navigation-enable"}`}
     >
       <div className="burger__navigation-container">
-        <div className="burger__navigation-links-container">
-          <Link
+      <Link
             to={pathes.main}
             className="burger__navigation-link"
             onClick={onClose}
-          >
-            Главная
+          >Главная
           </Link>
-          <div className="burger__navigation-underline"></div>
-        </div>
-        <div className="burger__navigation-links-container">
           <Link
             to={pathes.movies}
             className="burger__navigation-link"
@@ -30,9 +25,6 @@ function Burger({ isOpen, onClose }) {
           >
             Фильмы
           </Link>
-          <div className="burger__navigation-underline"></div>
-        </div>
-        <div className="burger__navigation-links-container">
           <Link
             to={pathes.savedMovies}
             className="burger__navigation-link"
@@ -40,8 +32,12 @@ function Burger({ isOpen, onClose }) {
           >
             Сохранённые фильмы
           </Link>
-          <div className="burger__navigation-underline"></div>
-        </div>
+        <Link
+          className="burger__navigation-button"
+          to={pathes.profile}
+          onClick={onClose}
+        >
+        </Link>
         <Link
           className="burger__navigation-button"
           to={pathes.profile}
