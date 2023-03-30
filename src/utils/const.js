@@ -4,8 +4,11 @@
 const pathes = {
   main: "/",
   movies: "/movies",
+  protectedMovies: "/movies/*",
   savedMovies: "/saved-movies",
+  protectedSavedMovies: "/saved-movies/*",
   profile: "/profile",
+  protectedProfile: "/profile/*",
   register: "/register",
   login: "/login",
 };

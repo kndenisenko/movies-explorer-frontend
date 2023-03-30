@@ -217,22 +217,22 @@ function App() {
           />
 
           <Route
-            path={pathes.profile}
+            path={pathes.protectedProfile}
             element={
-              <>
+              <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header isUserLoggedIn={isUserLoggedIn} />
                 <Profile
                   handleSignOut={handleSignOut}
                   onUpdateUser={onUpdateUser}
                 />
-              </>
+              </ProtectedRoute>
             }
           />
 
           <Route
-            path={pathes.movies}
+            path={pathes.protectedMovies}
             element={
-              <>
+              <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header isUserLoggedIn={isUserLoggedIn} />
                 <Movies
                   isLoading={isLoading}
@@ -248,14 +248,14 @@ function App() {
                   token={token}
                 />
                 <Footer />
-              </>
+              </ProtectedRoute>
             }
           />
 
           <Route
-            path={pathes.savedMovies}
+            path={pathes.protectedSavedMovies}
             element={
-              <>
+              <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header isUserLoggedIn={isUserLoggedIn} />
                 <SavedMovies
                   // // handleSaveMovie={handleSaveMovie}
@@ -272,7 +272,7 @@ function App() {
                   token={token}
                 />
                 <Footer />
-              </>
+              </ProtectedRoute>
             }
           />
 

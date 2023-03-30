@@ -1,6 +1,6 @@
 import "./moviesCardList.css";
 
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import MoreMovies from "../MoreMovies/MoreMovies";
 import Preloader from "../Preloader/Preloader";
@@ -36,7 +36,7 @@ export default function MoviesCardList({
       </section>
       {moreMovies ? <MoreMovies onClick={buttonMore} /> : null}
     </>
-  ) : null; // (
-  //   <Preloader />
-  // );
+  ) : (
+    <Preloader />
+  );
 }
