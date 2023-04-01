@@ -8,9 +8,9 @@ import Navigation from "../Burger/Burger";
 
 import { pathes } from "../../utils/const";
 
-function Header({ isUserLoggedIn }) {
+function Header({ isUserLoggedIn, onClickHeaderMovies, onClickHeaderSavedMovies }) {
   // console.log('Header')
-
+  const [isNavigation, setIsNavigation] = useState(false);
   const [isBurger, setisBurger] = useState(false);
 
   const handleOpenBurgerMenu = () => {
@@ -31,11 +31,19 @@ function Header({ isUserLoggedIn }) {
           <img className="header__logo" src={logo} alt="Логотип сайта" />
         </Link>
         <nav className="navy__logged">
-          <NavLink to={pathes.movies} className="navy__logged_link">
+          <NavLink
+          to={pathes.movies}
+          className="navy__logged_link"
+          onClick={onClickHeaderMovies}
+          >
             <p className="navy__logged_link_text">Фильмы</p>
           </NavLink>
 
-          <NavLink to={pathes.savedMovies} className="navy__logged_link">
+          <NavLink
+            to={pathes.savedMovies}
+            className="navy__logged_link"
+            onClick={onClickHeaderSavedMovies}
+            >
             <p className="navy__logged_link_text">Сохранённые фильмы</p>
           </NavLink>
         </nav>

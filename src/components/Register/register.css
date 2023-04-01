@@ -55,11 +55,13 @@
   outline: none;
   font-size: 14px;
   color: white;
-  margin: 0 0 27px 0;
+
+  margin: 0 0 12px 0;
 }
 
 .register__input:last-child {
   margin: 0;
+  padding: 0;
 }
 
 .register__input:focus {

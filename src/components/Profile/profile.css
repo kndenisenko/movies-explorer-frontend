@@ -79,6 +79,12 @@
   opacity: 0.7;
 }
 
+.profile__error{
+  font-size: 10px;
+  color: var(--red);
+  margin: 0;
+}
+
 @media (width <= 768px) {
   .profile {
     padding: 233px 0 128px 0;

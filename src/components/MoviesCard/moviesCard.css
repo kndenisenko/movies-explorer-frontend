@@ -54,6 +54,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   background-position-y: center;
+  border: none;
   padding: 0;
   margin: 0;
 }
@@ -63,6 +64,10 @@
   transition: opacity 0.2s linear;
   cursor: pointer;
 }
+
+.moviescard__remove {}
+
+.moviescard__remove:hover {}
 
 .moviescard__title {
   font-size: 13px;

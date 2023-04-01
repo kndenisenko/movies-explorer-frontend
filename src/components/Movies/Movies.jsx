@@ -1,48 +1,53 @@
 import "./movies.css";
 
-import {React, useState, useEffect } from "react";
-
 // Компоненты блока с фильмами
 import Searchform from "../Searchform/Searchform";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 // import { useState } from "react";
 
 function Movies({
-  handleSaveMovie,
-  handleUnSaveMovie,
   recivedMovies,
   isLoading,
   counter,
   moreMovies,
-  buttonMore,
   isSavedMoviesSection,
   isMainMoviesSection,
   savedMovies,
   findFilms,
-  checkedToggle,
-  token,
+  checked,
+  setChecked,
+  handleSaveMovie,
+  handleUnSaveMovie,
+  value,
+  loadMoreMovies,
 }) {
-  // console.log('Movies');
-  // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  // setIsUserLoggedIn(true);
+
 
   return (
     <>
-      <Searchform findFilms={findFilms} checkedToggle={checkedToggle} />
+      <Searchform
+      findFilms={findFilms}
+      checked={checked}
+      setChecked={setChecked}
+      recivedMovies={recivedMovies}
+    />
 
-      <MoviesCardList
-        // handleSaveMovie={handleSaveMovie}
-        // handleUnSaveMovie={handleUnSaveMovie}
-        recivedMovies={recivedMovies}
-        isLoading={isLoading}
-        counter={counter}
-        moreMovies={moreMovies}
-        buttonMore={buttonMore}
-        isSavedMoviesSection={isSavedMoviesSection}
-        isMainMoviesSection={isMainMoviesSection}
-        savedMovies={savedMovies}
-        token={token}
-      />
+{recivedMovies ? recivedMovies.length === 0 ? null : (
+        <MoviesCardList
+          handleSaveMovie={handleSaveMovie} //
+          handleUnSaveMovie={handleUnSaveMovie} //
+          isLoading={isLoading}  //
+          moreMovies={moreMovies}  //
+
+          recivedMovies={recivedMovies}  //
+          counter={counter}
+          isSavedMoviesSection={isSavedMoviesSection}
+          isMainMoviesSection={isMainMoviesSection}
+          savedMovies={savedMovies}
+          value={value}
+          loadMoreMovies={loadMoreMovies}
+        />
+      ) : null}
     </>
   );
 }

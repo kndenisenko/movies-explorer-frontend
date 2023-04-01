@@ -14,9 +14,9 @@ const pathes = {
 };
 
 const urls = {
-  superSecretUrl: "https://api.nomoreparties.co",
+  superSecretUrl: "https://api.nomoreparties.co/",
   myapi: "https://api.badass.nomoredomains.club",
-  myapidev: "http://localhost:3001",
+  myapidev: "http://localhost:3005",
 };
 
 export { pathes, urls };

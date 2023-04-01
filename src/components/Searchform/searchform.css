@@ -55,6 +55,13 @@
   margin: 0 0 0 12px;
 }
 
+.searchform__errors {
+  text-align: center;
+  margin: 75px 0 0 0 ;
+  color: #EE3465;
+}
+
+
 @media (width <= 478px) {
   .searchform {
     padding: 73px 14px 0 14px;

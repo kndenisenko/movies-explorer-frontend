@@ -8,14 +8,38 @@ class Api {
     this._headers = headers;
   }
 
+  // async getAllMovies(token) {
+  //   console.log(token)
+  //   return fetch(`${this._baseUrl}/movies`, {
+  //     headers: {
+  //       ...this._headers,
+  //       authorization: "Bearer " + token,
+  //     },
+  //   }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
+  // }
+
   async getAllMovies(token) {
+    console.log(token)
     return fetch(`${this._baseUrl}/movies`, {
       headers: {
         ...this._headers,
         authorization: "Bearer " + token,
       },
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(res.status);
+        }
+      })
+      .then((data) => {
+        console.log('getAllMovies data', data); // проверка вывода ответа сервера в консоль
+        return data;
+      });
   }
+
+
 
   async getUserInfo(token) {
     const res = await fetch(`${this._baseUrl}/users/me`, {
@@ -56,6 +80,7 @@ class Api {
     movieId,
     token
   ) {
+    console.log(movieId)
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
       headers: {
@@ -96,8 +121,8 @@ class Api {
 }
 
 export const MainApi = new Api({
+  // baseUrl: urls.myapi,
   baseUrl: urls.myapi,
-  // baseUrl: "http://localhost:3001",
   headers: {
     "Content-Type": "application/json",
   },
