@@ -11,7 +11,7 @@ export default function MoviesCard({
   handleSaveMovie,
   handleUnSaveMovie,
   // movieId,
-  isSavedMoviesPage
+  isSavedMoviesPage,
 }) {
   // const currentUser = useContext(CurrentUserContext);
 
@@ -20,7 +20,9 @@ export default function MoviesCard({
 
   const movieId = movie.id;
   const mongoId = movie._id;
-  const savedMovieData = savedMovies.find(savedMovie => savedMovie.movieId === movieId);
+  const savedMovieData = savedMovies.find(
+    (savedMovie) => savedMovie.movieId === movieId
+  );
 
   const url = "https://api.nomoreparties.co/";
 
@@ -31,51 +33,51 @@ export default function MoviesCard({
       ? "0" + (movie.duration % 60)
       : movie.duration % 60);
 
-      function saveMovie(e) {
-        handleSaveMovie(movie);
-        setIsSaved(true);
-      }
+  function saveMovie(e) {
+    handleSaveMovie(movie);
+    setIsSaved(true);
+  }
 
-      function unSaveMovie() {
-        if (isSaved && savedMovieData) {
-          handleUnSaveMovie({ ...movie, _id: savedMovieData._id });
-        } else {
-          handleUnSaveMovie(movie);
-        }
-      }
+  function unSaveMovie() {
+    if (isSaved && savedMovieData) {
+      handleUnSaveMovie({ ...movie, _id: savedMovieData._id });
+    } else {
+      handleUnSaveMovie(movie);
+    }
+  }
 
-      // дополнительная проверка для статуса фильма
-      useEffect(() => {
-        const isMovieSaved = savedMovies.some(
-          (savedMovie) => savedMovie.movieId === movie.id
-        );
-        setIsSaved(isMovieSaved);
-        if (isMovieSaved) {
-          setSavedMovie(
-            savedMovies.find((item) => item.movieId === movie.movieId)
+  // дополнительная проверка для статуса фильма
+  useEffect(() => {
+    const isMovieSaved = savedMovies.some(
+      (savedMovie) => savedMovie.movieId === movie.id
+    );
+    setIsSaved(isMovieSaved);
+    if (isMovieSaved) {
+      setSavedMovie(savedMovies.find((item) => item.movieId === movie.movieId));
+    }
+  }, [movie, savedMovies, isMainMoviesSection]);
+
+  useEffect(() => {
+    isMainMoviesSection
+      ? savedMovies.map((item) => {
+          const isMovieSaved = savedMovies.some(
+            (savedMovie) => savedMovie.movieId === movie.id
           );
-        }
-      }, [movie, savedMovies, isMainMoviesSection]);
-
-      useEffect(() => {
-        isMainMoviesSection
-          ? savedMovies.map((item) => {
-            const isMovieSaved = savedMovies.some((savedMovie) => savedMovie.movieId === movie.id);
-            setIsSaved(isMovieSaved);
-              if (item.movieId === movie.movieid) {
-                setIsSaved(true);
-                setSavedMovie(item);
-              }
-              return item;
-            })
-          : savedMovies.map((item) => {
-              if (item.movieId === movie.movieId) {
-                setIsSaved(true);
-                setSavedMovie(item);
-              }
-              return item;
-            });
-      }, [movie, savedMovies, isMainMoviesSection, isSaved]);
+          setIsSaved(isMovieSaved);
+          if (item.movieId === movie.movieid) {
+            setIsSaved(true);
+            setSavedMovie(item);
+          }
+          return item;
+        })
+      : savedMovies.map((item) => {
+          if (item.movieId === movie.movieId) {
+            setIsSaved(true);
+            setSavedMovie(item);
+          }
+          return item;
+        });
+  }, [movie, savedMovies, isMainMoviesSection, isSaved]);
 
   return (
     <>
@@ -90,16 +92,14 @@ export default function MoviesCard({
 
         <div className="moviescard__info">
           <p className="moviescard__title">{movie.nameRU}</p>
-          { isSaved ? (
-          <button
-            className="moviescard__saved" onClick={unSaveMovie} />
-        ) : (
-          <button className="moviescard__save" onClick={saveMovie} />
-        )}
+          {isSaved ? (
+            <button className="moviescard__saved" onClick={unSaveMovie} />
+          ) : (
+            <button className="moviescard__save" onClick={saveMovie} />
+          )}
         </div>
         <p className="moviescard__time">{time}</p>
       </div>
     </>
   );
 }
-

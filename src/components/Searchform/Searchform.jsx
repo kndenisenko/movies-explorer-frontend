@@ -9,12 +9,12 @@ function Searchform({
   checkedToggle,
   checked,
   setChecked,
-  recivedMovies }) {
-
-    // 🩼 для работы 🩼-переключателя
-    const iosToggleChange = (nextChecked) => {
-      setChecked(nextChecked);
-    };
+  recivedMovies,
+}) {
+  // 🩼 для работы 🩼-переключателя
+  const iosToggleChange = (nextChecked) => {
+    setChecked(nextChecked);
+  };
 
   const windowMovies = window.location.pathname === "/movies";
   const {
@@ -32,7 +32,6 @@ function Searchform({
     windowMovies ? "inputFindMovie" : "inputFindSavedMovie"
   );
 
-
   function onSubmit() {
     findFilms(inputFindMovieValue);
     windowMovies
@@ -40,17 +39,16 @@ function Searchform({
       : localStorage.setItem("valueSavedMovies", inputFindMovieValue);
   }
 
-
   return (
     <section className="searchform">
       <form className="searchform__search" onSubmit={handleSubmit(onSubmit)}>
         <input
-        {...register(
-          windowMovies ? "inputFindMovie" : "inputFindSavedMovie",
-          {
-            required: "Нужно ввести ключевое слово",
-          }
-        )}
+          {...register(
+            windowMovies ? "inputFindMovie" : "inputFindSavedMovie",
+            {
+              required: "Нужно ввести ключевое слово",
+            }
+          )}
           className="searchform__search-form"
           type="text"
           placeholder="Фильм"

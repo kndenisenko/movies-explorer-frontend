@@ -14,7 +14,7 @@ export default function SavedMovies({
   checked,
   setChecked,
 }) {
-  console.log('savedMovies', savedMovies);
+  // console.log('savedMovies', savedMovies);
 
   return (
     <>
@@ -25,16 +25,15 @@ export default function SavedMovies({
         recivedMovies={recivedMovies}
       />
 
-{recivedMovies.length === 0 ? null : (
-      <MoviesCardList
-        handleSaveMovie={handleSaveMovie}
+      {recivedMovies.length === 0 ? null : (
+        <MoviesCardList
+          handleSaveMovie={handleSaveMovie}
           handleUnSaveMovie={handleUnSaveMovie}
           recivedMovies={recivedMovies}
           isLoading={isLoading}
           isSavedMoviesSection={isSavedMoviesSection}
           savedMovies={savedMovies}
-
-      />
+        />
       )}
     </>
   );

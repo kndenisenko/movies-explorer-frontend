@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-.moviescard:nth-child(-n+3) {
+.moviescard:nth-child(-n + 3) {
   /* margin-top: 25px; */
 }
 
@@ -65,9 +65,11 @@
   cursor: pointer;
 }
 
-.moviescard__remove {}
+.moviescard__remove {
+}
 
-.moviescard__remove:hover {}
+.moviescard__remove:hover {
+}
 
 .moviescard__title {
   font-size: 13px;
@@ -129,6 +131,6 @@
   }
 
   .moviescard__time {
-  margin: 10px 0 0 5px;
-}
+    margin: 10px 0 0 5px;
+  }
 }

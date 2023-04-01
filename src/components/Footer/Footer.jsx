@@ -13,14 +13,15 @@ function Footer() {
       </p>
       <p className="footer__copywright">&#169; 2023</p>
       <nav className="footer__navy">
-        <Link className="footer__navy-link"
+        <Link
+          className="footer__navy-link"
           to="https://practicum.yandex.ru/"
           target={"_blank"}
         >
-
           Яндекс.Практикум
         </Link>
-        <Link className="footer__navy-link"
+        <Link
+          className="footer__navy-link"
           to="https://github.com/"
           target={"_blank"}
         >

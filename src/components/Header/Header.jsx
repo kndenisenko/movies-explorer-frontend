@@ -8,7 +8,11 @@ import Navigation from "../Burger/Burger";
 
 import { pathes } from "../../utils/const";
 
-function Header({ isUserLoggedIn, onClickHeaderMovies, onClickHeaderSavedMovies }) {
+function Header({
+  isUserLoggedIn,
+  onClickHeaderMovies,
+  onClickHeaderSavedMovies,
+}) {
   // console.log('Header')
   const [isNavigation, setIsNavigation] = useState(false);
   const [isBurger, setisBurger] = useState(false);
@@ -32,9 +36,9 @@ function Header({ isUserLoggedIn, onClickHeaderMovies, onClickHeaderSavedMovies 
         </Link>
         <nav className="navy__logged">
           <NavLink
-          to={pathes.movies}
-          className="navy__logged_link"
-          onClick={onClickHeaderMovies}
+            to={pathes.movies}
+            className="navy__logged_link"
+            onClick={onClickHeaderMovies}
           >
             <p className="navy__logged_link_text">Фильмы</p>
           </NavLink>
@@ -43,13 +47,17 @@ function Header({ isUserLoggedIn, onClickHeaderMovies, onClickHeaderSavedMovies 
             to={pathes.savedMovies}
             className="navy__logged_link"
             onClick={onClickHeaderSavedMovies}
-            >
+          >
             <p className="navy__logged_link_text">Сохранённые фильмы</p>
           </NavLink>
         </nav>
         <Link className="header__account-button" to={pathes.profile}>
           <p className="header__account-button-text">Аккаунт</p>
-          <img className="header__account-button-icon" src={user} alt="Аккаунт пользователя" />
+          <img
+            className="header__account-button-icon"
+            src={user}
+            alt="Аккаунт пользователя"
+          />
         </Link>
         <button
           className="header__burger"
@@ -68,7 +76,7 @@ function Header({ isUserLoggedIn, onClickHeaderMovies, onClickHeaderSavedMovies 
           <NavLink to={pathes.register} className="navy__link">
             <p className="navy__link_text">Регистрация</p>
           </NavLink>
-          <NavLink to={pathes.login} className="navy__link_button" >
+          <NavLink to={pathes.login} className="navy__link_button">
             <p className="navy__link_button_text">Войти</p>
           </NavLink>
         </div>

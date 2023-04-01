@@ -49,7 +49,9 @@ function Register({ handleRegister, errorMessage }) {
               },
             })}
           />
-<span className="register__error">{errors?.registrationName?.message}</span>
+          <span className="register__error">
+            {errors?.registrationName?.message}
+          </span>
           <p className="register__form-header">E-mail</p>
           <input
             className="register__input"
@@ -63,7 +65,9 @@ function Register({ handleRegister, errorMessage }) {
               },
             })}
           />
-<span className="register__error">{errors?.registrationEmail?.message}</span>
+          <span className="register__error">
+            {errors?.registrationEmail?.message}
+          </span>
           <p className="register__form-header">Пароль</p>
           <input
             className="register__input"
@@ -74,8 +78,9 @@ function Register({ handleRegister, errorMessage }) {
             })}
           />
           <span className="register__error">
-          {errors?.registrerPassword && "Укажите пароль. Можно взять pass например"}
-        </span>
+            {errors?.registrerPassword &&
+              "Укажите пароль. Можно взять pass например"}
+          </span>
           <span className="register__error">{errorMessage}</span>
 
           <button className="register__button" type="submit">

@@ -37,7 +37,6 @@ function App() {
   const [errorMessageLog, setErrorMessageLog] = useState("");
   const [confirmMessage, setConfirmMessage] = useState(false);
 
-
   // Константы фильмов
   const [recivedMovies, setRecivedMovies] = useState([]);
   const [counter, setCounter] = useState(12);
@@ -51,13 +50,10 @@ function App() {
   const [copySavedMovies, setCopySavedMovies] = useState([]);
   const [checked, setChecked] = useState(false);
 
-
   // Определяем активные окна (пути)
   const windowMovies = window.location.pathname === "/movies";
   const windowReg = window.location.pathname === "/signin";
   const windowLog = window.location.pathname === "/signup";
-
-
 
   const [token, setToken] = useState("");
 
@@ -73,7 +69,7 @@ function App() {
           }
         })
         .catch((err) => {
-          console.log("Ошибка checkToken", token);
+          // console.log("Ошибка checkToken", token);
           console.log(`Ошибка checkToken: ${err}`);
         });
     }
@@ -89,7 +85,9 @@ function App() {
           localStorage.setItem("recivedMovies", JSON.stringify(res));
           localStorage.setItem("lastFoundMovies", JSON.stringify(res));
         })
-        .catch((err) => console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`));
+        .catch((err) =>
+          console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`)
+        );
     } else {
       setIsLoading(true);
       localStorage.getItem("valueMovies")
@@ -116,7 +114,7 @@ function App() {
     return Auth.login(email, password)
       .then((data) => {
         if (data.token) {
-          console.log("handleLogin data", data);
+          // console.log("handleLogin data", data);
           localStorage.setItem("jwt", data.token);
           setIsUserLoggedIn(true);
           setToken(data.token);
@@ -135,7 +133,6 @@ function App() {
     setErrorMessage("");
   }
 
-
   // Обращение к пользовательскому апи, не к яндексу
   // И в localstorage всё, всё туда
   useEffect(() => {
@@ -144,9 +141,7 @@ function App() {
     if (localStorage.getItem("lastFoundMovies")) {
       if (localStorage.getItem("shortfilms") && windowMovies) {
         setChecked(true);
-        setRecivedMovies(
-          JSON.parse(localStorage.getItem("shortfilms"))
-        );
+        setRecivedMovies(JSON.parse(localStorage.getItem("shortfilms")));
       } else {
         setRecivedMovies(JSON.parse(localStorage.getItem("lastFoundMovies")));
       }
@@ -171,13 +166,13 @@ function App() {
         .catch((err) =>
           console.log(`Ошибка загрузки фильмов (апи юзера MainApi): ${err}`)
         );
-      }
+    }
   }, [token, windowMovies, currentUser.user_id]);
-
 
   function handleSignOut() {
     setIsUserLoggedIn(false);
-    localStorage.removeItem("jwt");localStorage.clear();
+    localStorage.removeItem("jwt");
+    localStorage.clear();
     window.location.reload();
   }
 
@@ -214,10 +209,7 @@ function App() {
           return item.duration < 40 ? item : null;
         });
         setRecivedMovies(shortMovie);
-        localStorage.setItem(
-          "shortfilms",
-          JSON.stringify(shortMovie)
-        );
+        localStorage.setItem("shortfilms", JSON.stringify(shortMovie));
         localStorage.setItem("lastFoundMovies", JSON.stringify(movie));
       } else {
         const movie = Object.values(
@@ -258,9 +250,8 @@ function App() {
     }
   }
 
-
   function handleSaveMovie(movie) {
-    console.log('when save', movie)
+    // console.log('when save', movie)
     if (token) {
       MainApi.saveMovie(
         movie.country,
@@ -284,10 +275,10 @@ function App() {
     }
   }
 
-    function handleUnSaveMovie(savedMovie) {
-    console.log('movie when delete', savedMovie);
-        console.log('movie.id when delete', savedMovie.id);
-        console.log('movie._id when delete', savedMovie._id);
+  function handleUnSaveMovie(savedMovie) {
+    // console.log('movie when delete', savedMovie);
+    //     console.log('movie.id when delete', savedMovie.id);
+    //     console.log('movie._id when delete', savedMovie._id);
     if (token) {
       // const id = savedMovie.id || savedMovie._id;
       MainApi.deleteMovie(savedMovie._id, token)
@@ -301,7 +292,6 @@ function App() {
         .catch((err) => console.log(`Ошибка удаления фильма: ${err}`));
     }
   }
-
 
   //короткометражный переключатель
   useEffect(() => {
@@ -330,14 +320,12 @@ function App() {
     }
   }, [checked, windowMovies]);
 
-
   useEffect(() => {
     setErrorMessageReg("");
     setErrorMessageLog("");
   }, [windowReg, windowLog]);
 
-
- // обработка короткометражек
+  // обработка короткометражек
   function onClickHeaderMovies() {
     if (localStorage.getItem("shortfilms")) {
       setChecked(true);
@@ -347,13 +335,10 @@ function App() {
   }
   const onClickHeaderSavedMovies = () => {
     setChecked(false);
-    console.log('clicked to saved')
+    // console.log('clicked to saved')
     localStorage.removeItem("valueSavedMovies");
     localStorage.removeItem("shortfilms");
   };
-
-
-
 
   return (
     <div className="page">
@@ -364,8 +349,7 @@ function App() {
             path={pathes.main}
             element={
               <>
-                <Header
-                isUserLoggedIn={isUserLoggedIn} />
+                <Header isUserLoggedIn={isUserLoggedIn} />
                 <Main />
                 <Footer />
               </>
@@ -449,7 +433,6 @@ function App() {
                   findFilms={findFilms}
                   checked={checked}
                   setChecked={setChecked}
-
                 />
                 <Footer />
               </ProtectedRoute>

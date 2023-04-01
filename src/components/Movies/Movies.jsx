@@ -21,32 +21,31 @@ function Movies({
   value,
   loadMoreMovies,
 }) {
-
-
   return (
     <>
       <Searchform
-      findFilms={findFilms}
-      checked={checked}
-      setChecked={setChecked}
-      recivedMovies={recivedMovies}
-    />
+        findFilms={findFilms}
+        checked={checked}
+        setChecked={setChecked}
+        recivedMovies={recivedMovies}
+      />
 
-{recivedMovies ? recivedMovies.length === 0 ? null : (
-        <MoviesCardList
-          handleSaveMovie={handleSaveMovie} //
-          handleUnSaveMovie={handleUnSaveMovie} //
-          isLoading={isLoading}  //
-          moreMovies={moreMovies}  //
-
-          recivedMovies={recivedMovies}  //
-          counter={counter}
-          isSavedMoviesSection={isSavedMoviesSection}
-          isMainMoviesSection={isMainMoviesSection}
-          savedMovies={savedMovies}
-          value={value}
-          loadMoreMovies={loadMoreMovies}
-        />
+      {recivedMovies ? (
+        recivedMovies.length === 0 ? null : (
+          <MoviesCardList
+            handleSaveMovie={handleSaveMovie} //
+            handleUnSaveMovie={handleUnSaveMovie} //
+            isLoading={isLoading} //
+            moreMovies={moreMovies} //
+            recivedMovies={recivedMovies} //
+            counter={counter}
+            isSavedMoviesSection={isSavedMoviesSection}
+            isMainMoviesSection={isMainMoviesSection}
+            savedMovies={savedMovies}
+            value={value}
+            loadMoreMovies={loadMoreMovies}
+          />
+        )
       ) : null}
     </>
   );

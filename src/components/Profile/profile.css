@@ -79,7 +79,7 @@
   opacity: 0.7;
 }
 
-.profile__error{
+.profile__error {
   font-size: 10px;
   color: var(--red);
   margin: 0;

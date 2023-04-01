@@ -73,39 +73,39 @@ export default function MoviesCardList({
   }, [recivedMovies, counter]);
 
   return isLoading ? (
-    windowMovies ?(
-    <>
-      <section className="moviescardlist" aria-label="Фильмы">
-        {recivedMovies.slice(0, counter).map((movie, i) => (
+    windowMovies ? (
+      <>
+        <section className="moviescardlist" aria-label="Фильмы">
+          {recivedMovies.slice(0, counter).map((movie, i) => (
+            <MoviesCard
+              movie={movie}
+              key={movie.id}
+              isMainMoviesSection={isMainMoviesSection}
+              savedMovies={savedMovies}
+              handleSaveMovie={handleSaveMovie}
+              handleUnSaveMovie={handleUnSaveMovie}
+              // id={movie._id || movie.id}
+            />
+          ))}
+        </section>
+        {moreMovies ? <MoreMovies onClick={buttonMore} /> : null}
+      </>
+    ) : (
+      <section className="moviescardlist" aria-label="Сохранённые Фильмы">
+        {recivedMovies.map((movie, i) => (
           <MoviesCard
             movie={movie}
-            key={movie.id}
+            key={movie._id}
             isMainMoviesSection={isMainMoviesSection}
             savedMovies={savedMovies}
+            setSavedMovies={setSavedMovies}
             handleSaveMovie={handleSaveMovie}
             handleUnSaveMovie={handleUnSaveMovie}
             // id={movie._id || movie.id}
           />
         ))}
       </section>
-      {moreMovies ? <MoreMovies onClick={buttonMore} /> : null}
-    </>
-  ) : (
-    <section className="moviescardlist" aria-label="Сохранённые Фильмы">
-      {recivedMovies.map((movie, i) => (
-        <MoviesCard
-          movie={movie}
-          key={movie._id}
-          isMainMoviesSection={isMainMoviesSection}
-          savedMovies={savedMovies}
-          setSavedMovies={setSavedMovies}
-          handleSaveMovie={handleSaveMovie}
-          handleUnSaveMovie={handleUnSaveMovie}
-          // id={movie._id || movie.id}
-        />
-      ))}
-    </section>
-  )
+    )
   ) : (
     <Preloader />
   );

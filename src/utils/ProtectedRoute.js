@@ -7,7 +7,11 @@ export default function ProtectedRoute({ isUserLoggedIn, children, path }) {
       <Route
         path={path}
         element={
-          localStorage.getItem("jwt") ? children : <Navigate to={pathes.login} />
+          localStorage.getItem("jwt") ? (
+            children
+          ) : (
+            <Navigate to={pathes.login} />
+          )
         }
       />
     </Routes>

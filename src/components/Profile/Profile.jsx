@@ -7,13 +7,13 @@ import { pathes } from "../../utils/const";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 // import { useEffect } from "react";
 
-function Profile({ onUpdateUser,
+function Profile({
+  onUpdateUser,
   handleSignOut,
   confirmMessage,
   onUpdateUseState,
   errorMessage,
-})
-{
+}) {
   // console.log("profile");
   const currentUser = React.useContext(CurrentUserContext);
 
@@ -80,17 +80,17 @@ function Profile({ onUpdateUser,
         <div className="profile__container">
           <p className="profile__container-name">Имя</p>
           <input
-          {...register("profileName", {
-            required: "Введите имя",
-            minLength: {
-              value: 2,
-              message: "Минимум 2 символа",
-            },
-            maxLength: {
-              value: 30,
-              message: "Максимум 30 символа",
-            },
-          })}
+            {...register("profileName", {
+              required: "Введите имя",
+              minLength: {
+                value: 2,
+                message: "Минимум 2 символа",
+              },
+              maxLength: {
+                value: 30,
+                message: "Максимум 30 символа",
+              },
+            })}
             className="profile__input"
             placeholder="Имя"
             required

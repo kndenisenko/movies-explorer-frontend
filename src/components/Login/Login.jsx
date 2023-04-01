@@ -42,7 +42,7 @@ function Login({ handleLogin }) {
               },
             })}
           />
-<span className="login__error">{errors?.loginEmail?.message}</span>
+          <span className="login__error">{errors?.loginEmail?.message}</span>
           <p className="login__form-header">Пароль</p>
           <input
             className="login__input"
@@ -52,15 +52,18 @@ function Login({ handleLogin }) {
               required: "Введите пароль",
             })}
           />
-<span className="login__error">
-          {errors?.loginPassword && "Укажите пароль. Можно взять pass например"}
-        </span>
+          <span className="login__error">
+            {errors?.loginPassword &&
+              "Укажите пароль. Можно взять pass например"}
+          </span>
           <button className="login__button" type="submit">
             Войти
           </button>
         </form>
         <div className="login__bottom-container">
-          <p className="login__bottom-container-text">Ещё не зарегистрированы?</p>
+          <p className="login__bottom-container-text">
+            Ещё не зарегистрированы?
+          </p>
           <Link to={pathes.register} className="login__bottom-container-link">
             Регистрация
           </Link>
