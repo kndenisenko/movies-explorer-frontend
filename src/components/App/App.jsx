@@ -174,6 +174,7 @@ function App() {
     localStorage.removeItem("jwt");
     localStorage.clear();
     window.location.reload();
+
   }
 
   // Обновление данных юзера
