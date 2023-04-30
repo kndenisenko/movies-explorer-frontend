@@ -174,7 +174,6 @@ function App() {
     localStorage.removeItem("jwt");
     localStorage.clear();
     window.location.reload();
-
   }
 
   // Обновление данных юзера
@@ -362,6 +361,8 @@ function App() {
             element={
               <Register
                 handleRegister={handleRegister}
+                isUserLoggedIn={isUserLoggedIn}
+                history={history}
                 errorMessage={errorMessage}
               />
             }
@@ -369,7 +370,13 @@ function App() {
 
           <Route
             path={pathes.login}
-            element={<Login handleLogin={handleLogin} />}
+            element={
+              <Login
+                handleLogin={handleLogin}
+                isUserLoggedIn={isUserLoggedIn}
+                history={history}
+              />
+            }
           />
 
           <Route

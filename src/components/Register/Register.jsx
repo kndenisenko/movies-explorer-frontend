@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { pathes } from "../../utils/const";
 
-function Register({ handleRegister, errorMessage }) {
+function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
   // console.log("Register");
   const {
     register,
@@ -22,11 +22,15 @@ function Register({ handleRegister, errorMessage }) {
     "registrerPassword",
   ]);
 
+  console.log("isUserLoggedIn", isUserLoggedIn);
+
   function onSubmit() {
     handleRegister(registrationName, registrationEmail, registrerPassword);
   }
 
-  return (
+  return isUserLoggedIn ? (
+    history(`${pathes.main}`)
+  ) : (
     <section className="register">
       <div className="register__container">
         <Link to={pathes.main} className="register__logo"></Link>

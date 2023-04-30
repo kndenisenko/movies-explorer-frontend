@@ -7,7 +7,7 @@ import { pathes } from "../../utils/const";
 
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, isUserLoggedIn, history }) {
   const {
     register,
     handleSubmit,
@@ -23,7 +23,11 @@ function Login({ handleLogin }) {
     handleLogin(loginEmail, loginPassword);
   }
 
-  return (
+  // console.log('isUserLoggedIn', isUserLoggedIn)
+
+  return isUserLoggedIn ? (
+    history(`${pathes.main}`)
+  ) : (
     <section className="login">
       <div className="login__container">
         <Link to={pathes.main} className="login__logo"></Link>
