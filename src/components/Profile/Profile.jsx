@@ -23,7 +23,7 @@ function Profile({
     watch,
     formState: { errors },
   } = useForm({
-    mode: "onSubmit",
+    mode: "onChange",
     defaultValues: {
       profileName: localStorage.getItem("profileName"),
       profileEmail: localStorage.getItem("profileEmail"),
@@ -32,14 +32,16 @@ function Profile({
 
   const [profileName, profileEmail] = watch(["profileName", "profileEmail"]);
 
+
+  console.log('errors', Object.keys(errors).length)
+
   function checkValidity() {
     if (
-      profileName === localStorage.getItem("profileName") &&
-      profileEmail === localStorage.getItem("profileEmail")
+      Object.keys(errors).length > 0
     ) {
       return (
-        <button className="profile__save-changes" type="submit" disabled>
-          Редактировать
+        <button className="profile__need-changes" type="submit" disabled>
+          Исправьте ошибки для обновления профиля
         </button>
       );
     } else {
@@ -118,7 +120,7 @@ function Profile({
           {errorMessage ? errorMessage : ""}
         </span>
         {checkValidity()}
-        <Link to="/" className="profile__logout" onClick={handleSignOut}>
+        <Link to={Pathes.main} className="profile__logout" onClick={handleSignOut}>
           Выйти из аккаунта
         </Link>
       </form>

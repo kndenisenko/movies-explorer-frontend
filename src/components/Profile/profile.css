@@ -66,6 +66,15 @@
   opacity: 0.7;
 }
 
+.profile__need-changes {
+  font-size: 13px;
+  color: var(--red);
+  background-color: var(--bg-color);
+  border: none;
+  transition: all, 0.3s;
+  margin: 186px 0 16px 0;
+}
+
 .profile__logout {
   font-size: 13px;
   text-decoration: none;
