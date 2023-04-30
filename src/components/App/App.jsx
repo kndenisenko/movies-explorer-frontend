@@ -7,7 +7,7 @@ import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 // Иммпорт глобальных переменных и JS-компонентов
 import ProtectedRoute from "../../utils/ProtectedRoute.js";
-import { pathes, urls } from "../../utils/const";
+import { Pathes, Urls } from "../../utils/const";
 import * as Auth from "../../utils/Auth";
 import { MainApi } from "../../utils/MainApi";
 import { MoviesApi } from "../../utils/MoviesApi";
@@ -101,7 +101,7 @@ function App() {
     return Auth.registration(name, email, password)
       .then((res) => {
         setCurrentUser(res);
-        history(`${pathes.login}`); // вжух
+        history(`${Pathes.login}`); // вжух
       })
       .catch((error) => {
         console.log("Ошибка handleRegister:");
@@ -118,7 +118,7 @@ function App() {
           localStorage.setItem("jwt", data.token);
           setIsUserLoggedIn(true);
           setToken(data.token);
-          history(`${pathes.movies}`);
+          history(`${Pathes.movies}`);
         }
       })
       .catch((error) => {
@@ -346,7 +346,7 @@ function App() {
         <Routes>
           {/* главная страница */}
           <Route
-            path={pathes.main}
+            path={Pathes.main}
             element={
               <>
                 <Header isUserLoggedIn={isUserLoggedIn} />
@@ -357,7 +357,7 @@ function App() {
           />
 
           <Route
-            path={pathes.register}
+            path={Pathes.register}
             element={
               <Register
                 handleRegister={handleRegister}
@@ -369,7 +369,7 @@ function App() {
           />
 
           <Route
-            path={pathes.login}
+            path={Pathes.login}
             element={
               <Login
                 handleLogin={handleLogin}
@@ -380,7 +380,7 @@ function App() {
           />
 
           <Route
-            path={pathes.protectedProfile}
+            path={Pathes.protectedProfile}
             element={
               <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header isUserLoggedIn={isUserLoggedIn} />
@@ -394,7 +394,7 @@ function App() {
           />
 
           <Route
-            path={pathes.protectedMovies}
+            path={Pathes.protectedMovies}
             element={
               <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header
@@ -424,7 +424,7 @@ function App() {
           />
 
           <Route
-            path={pathes.protectedSavedMovies}
+            path={Pathes.protectedSavedMovies}
             element={
               <ProtectedRoute isUserLoggedIn={isUserLoggedIn} path="">
                 <Header

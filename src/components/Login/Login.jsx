@@ -3,7 +3,7 @@ import "./login.css";
 import { React, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 
 // import logo from "../../images/logo.svg";
 
@@ -26,11 +26,11 @@ function Login({ handleLogin, isUserLoggedIn, history }) {
   // console.log('isUserLoggedIn', isUserLoggedIn)
 
   return isUserLoggedIn ? (
-    history(`${pathes.main}`)
+    history(`${Pathes.main}`)
   ) : (
     <section className="login">
       <div className="login__container">
-        <Link to={pathes.main} className="login__logo"></Link>
+        <Link to={Pathes.main} className="login__logo"></Link>
         <h1 className="login__header">Рады видеть!</h1>
         <form className="login__form" onSubmit={handleSubmit(onSubmit)}>
           <p className="login__form-header">E-mail</p>
@@ -68,7 +68,7 @@ function Login({ handleLogin, isUserLoggedIn, history }) {
           <p className="login__bottom-container-text">
             Ещё не зарегистрированы?
           </p>
-          <Link to={pathes.register} className="login__bottom-container-link">
+          <Link to={Pathes.register} className="login__bottom-container-link">
             Регистрация
           </Link>
         </div>

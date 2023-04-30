@@ -4,7 +4,7 @@ import { React } from "react";
 import { Link } from "react-router-dom";
 import user from "../../images/user.svg";
 
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 
 function Burger({ isOpen, onClose }) {
   return (
@@ -13,21 +13,21 @@ function Burger({ isOpen, onClose }) {
     >
       <div className="burger__navigation-container">
         <Link
-          to={pathes.main}
+          to={Pathes.main}
           className="burger__navigation-link"
           onClick={onClose}
         >
           Главная
         </Link>
         <Link
-          to={pathes.movies}
+          to={Pathes.movies}
           className="burger__navigation-link"
           onClick={onClose}
         >
           Фильмы
         </Link>
         <Link
-          to={pathes.savedMovies}
+          to={Pathes.savedMovies}
           className="burger__navigation-link"
           onClick={onClose}
         >
@@ -35,12 +35,12 @@ function Burger({ isOpen, onClose }) {
         </Link>
         <Link
           className="burger__navigation-button"
-          to={pathes.profile}
+          to={Pathes.profile}
           onClick={onClose}
         ></Link>
         <Link
           className="burger__navigation-button"
-          to={pathes.profile}
+          to={Pathes.profile}
           onClick={onClose}
         >
           <p className="burger__navigation-button-text">Аккаунт</p>

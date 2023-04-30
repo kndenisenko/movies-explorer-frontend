@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import { pathes } from "./const";
+import { Pathes } from "./const";
 
 export default function ProtectedRoute({ isUserLoggedIn, children, path }) {
   return (
@@ -7,7 +7,7 @@ export default function ProtectedRoute({ isUserLoggedIn, children, path }) {
       <Route
         path={path}
         element={
-          localStorage.getItem("jwt") ? children : <Navigate to={pathes.main} />
+          localStorage.getItem("jwt") ? children : <Navigate to={Pathes.main} />
         }
       />
     </Routes>

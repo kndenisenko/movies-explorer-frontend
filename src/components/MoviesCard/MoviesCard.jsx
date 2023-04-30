@@ -1,7 +1,7 @@
 import "./moviesCard.css";
 
 import React, { useEffect, useState, useContext } from "react";
-import { urls } from "../../utils/const";
+import { Urls } from "../../utils/const";
 // import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 export default function MoviesCard({

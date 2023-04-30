@@ -1,6 +1,6 @@
 // Запросы к нашему Api
 
-import { urls } from "../utils/const.js";
+import { Urls } from "../utils/const.js";
 
 class Api {
   constructor({ baseUrl, headers }) {
@@ -109,8 +109,8 @@ class Api {
 }
 
 export const MainApi = new Api({
-  // baseUrl: urls.myapi,
-  baseUrl: urls.myapi,
+  // baseUrl: Urls.myapi,
+  baseUrl: Urls.myapi,
   headers: {
     "Content-Type": "application/json",
   },

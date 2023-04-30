@@ -3,7 +3,7 @@ import "./profile.css";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 // import { useEffect } from "react";
 

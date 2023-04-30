@@ -1,7 +1,7 @@
 // какие-то стандартные настройки, которые импортируются по мере надобности
 
 // список путей сайта
-const pathes = {
+const Pathes = {
   main: "/",
   movies: "/movies",
   protectedMovies: "/movies/*",
@@ -13,10 +13,10 @@ const pathes = {
   login: "/login",
 };
 
-const urls = {
+const Urls = {
   superSecretUrl: "https://api.nomoreparties.co/",
   myapi: "https://api.badass.nomoredomains.club",
   myapidev: "http://localhost:3005",
 };
 
-export { pathes, urls };
+export { Pathes, Urls };

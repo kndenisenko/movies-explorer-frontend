@@ -3,7 +3,7 @@ import "./register.css";
 import { React, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 
 function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
   // console.log("Register");
@@ -29,11 +29,11 @@ function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
   }
 
   return isUserLoggedIn ? (
-    history(`${pathes.main}`)
+    history(`${Pathes.main}`)
   ) : (
     <section className="register">
       <div className="register__container">
-        <Link to={pathes.main} className="register__logo"></Link>
+        <Link to={Pathes.main} className="register__logo"></Link>
         <h1 className="register__header">Добро пожаловать!</h1>
         <form className="register__form" onSubmit={handleSubmit(onSubmit)}>
           <p className="register__form-header">Имя</p>
@@ -95,7 +95,7 @@ function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
           <p className="register__bottom-container-text">
             Уже зарегистрированы?
           </p>
-          <Link to={pathes.login} className="register__bottom-container-link">
+          <Link to={Pathes.login} className="register__bottom-container-link">
             Войти
           </Link>
         </div>
