@@ -305,7 +305,7 @@ function App() {
       } else {
         setRecivedMovies(JSON.parse(localStorage.getItem("lastFoundMovies")));
         setChecked(false);
-        localStorage.removeItem("shortfilms"); // вот тут могут быть проблемы может быть
+        // localStorage.removeItem("shortfilms"); // вот тут могут быть проблемы может быть
       }
     } else {
       if (checked) {

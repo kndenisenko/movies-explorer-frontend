@@ -1,6 +1,6 @@
 import "./searchform.css";
 
-import React from "react";
+import { React, useEffect } from "react";
 import Switch from "react-switch";
 import { useForm } from "react-hook-form";
 
@@ -13,7 +13,12 @@ function Searchform({
 }) {
   // 🩼 для работы 🩼-переключателя
   const iosToggleChange = (nextChecked) => {
+    localStorage.setItem("switchStatus", JSON.stringify(nextChecked));
+    if (nextChecked === false) {
+      localStorage.removeItem("shortfilms")
+    }
     setChecked(nextChecked);
+
   };
 
   const windowMovies = window.location.pathname === "/movies";
