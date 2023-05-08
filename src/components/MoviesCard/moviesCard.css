@@ -65,10 +65,22 @@
   cursor: pointer;
 }
 
-.moviescard__remove {
+.moviescard__delete {
+  width: 21px;
+  height: 21px;
+  background-image: url(../../images/delete.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position-y: center;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-.moviescard__remove:hover {
+.moviescard__delete:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
 }
 
 .moviescard__title {

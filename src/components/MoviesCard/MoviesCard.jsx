@@ -12,6 +12,7 @@ export default function MoviesCard({
   handleUnSaveMovie,
   // movieId,
   isSavedMoviesPage,
+  windowMovies
 }) {
   // const currentUser = useContext(CurrentUserContext);
 
@@ -79,7 +80,7 @@ export default function MoviesCard({
         });
   }, [movie, savedMovies, isMainMoviesSection, isSaved]);
 
-  return (
+  return windowMovies ? (
     <>
       <div className="moviescard">
         <a href={movie.trailerLink} rel="noreferrer" target="_blank">
@@ -101,5 +102,25 @@ export default function MoviesCard({
         <p className="moviescard__time">{time}</p>
       </div>
     </>
-  );
+  ) : (
+    <>
+      <div className="moviescard">
+        <a href={movie.trailerLink} rel="noreferrer" target="_blank">
+          <img
+            className="moviescard__image"
+            src={movie.image.url ? `${url}/${movie.image.url}` : movie.image}
+            alt={movie.nameRU}
+          />
+        </a>
+
+        <div className="moviescard__info">
+          <p className="moviescard__title">{movie.nameRU}</p>
+
+            <button className="moviescard__delete" onClick={unSaveMovie} />
+
+        </div>
+        <p className="moviescard__time">{time}</p>
+      </div>
+    </>
+      );
 }

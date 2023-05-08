@@ -84,6 +84,7 @@ export default function MoviesCardList({
               savedMovies={savedMovies}
               handleSaveMovie={handleSaveMovie}
               handleUnSaveMovie={handleUnSaveMovie}
+              windowMovies={windowMovies}
               // id={movie._id || movie.id}
             />
           ))}
@@ -101,6 +102,7 @@ export default function MoviesCardList({
             setSavedMovies={setSavedMovies}
             handleSaveMovie={handleSaveMovie}
             handleUnSaveMovie={handleUnSaveMovie}
+            windowMovies={windowMovies}
             // id={movie._id || movie.id}
           />
         ))}
