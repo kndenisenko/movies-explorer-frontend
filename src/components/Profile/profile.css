@@ -94,6 +94,11 @@
   margin: 0;
 }
 
+.profile__confirm-message {
+  font-size: 13px;
+  color: var(--accent-color);
+}
+
 @media (width <= 768px) {
   .profile {
     padding: 233px 0 128px 0;
@@ -125,3 +130,4 @@
     margin: 341px 0 16px 0;
   }
 }
+

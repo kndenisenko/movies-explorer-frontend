@@ -389,6 +389,7 @@ function App() {
                   handleSignOut={handleSignOut}
                   onUpdateUser={handleUpdateUser}
                   onUpdateUseState={onUpdateUseState}
+                  confirmMessage={confirmMessage}
                 />
               </ProtectedRoute>
             }

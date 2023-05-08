@@ -72,7 +72,7 @@ function Profile({
 
   function onSubmit() {
     onUpdateUser(profileName, profileEmail);
-    setTimeout(hideError, 3000);
+    setTimeout(hideError, 5000);
   }
 
   return (
@@ -116,7 +116,7 @@ function Profile({
         </div>
         <span className="profile__error">{errors?.profileEmail?.message}</span>
         <span className="profile__confirm-message">
-          {confirmMessage ? "Данные обновлены" : ""}
+          {confirmMessage ? "Данные успешно обновлены!" : ""}
           {errorMessage ? errorMessage : ""}
         </span>
         {checkValidity()}
