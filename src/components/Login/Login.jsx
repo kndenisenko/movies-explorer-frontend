@@ -7,7 +7,7 @@ import { Pathes } from "../../utils/const";
 
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin, isUserLoggedIn, history }) {
+function Login({ handleLogin, isUserLoggedIn, history, errorMessage }) {
   const {
     register,
     handleSubmit,
@@ -60,6 +60,7 @@ function Login({ handleLogin, isUserLoggedIn, history }) {
             {errors?.loginPassword &&
               "Укажите пароль. Можно взять pass например"}
           </span>
+          <span className="login__error">{errorMessage}</span>
           <button className="login__button" type="submit">
             Войти
           </button>

@@ -375,6 +375,7 @@ function App() {
                 handleLogin={handleLogin}
                 isUserLoggedIn={isUserLoggedIn}
                 history={history}
+                errorMessage={errorMessage}
               />
             }
           />
