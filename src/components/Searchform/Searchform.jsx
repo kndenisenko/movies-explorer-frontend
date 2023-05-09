@@ -1,27 +1,50 @@
 import "./searchform.css";
 
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import Switch from "react-switch";
 import { useForm } from "react-hook-form";
+import { check } from "prettier";
 
 function Searchform({
   findFilms,
   checkedToggle,
-  checked,
-  setChecked,
-  recivedMovies,
+  allMoviesFromYandexApi,
+  activateShortFilmsToggle,
+  shortfilmsSwitch,
 }) {
+  const windowMovies = window.location.pathname === "/movies";
+
+  const [checked, setChecked] = useState(JSON.parse(localStorage.getItem("switchStatus")));
+  const [isIosToggleActive, setisIosToggleActive] = useState(JSON.parse(localStorage.getItem("switchStatus")));
+
+
   // 🩼 для работы 🩼-переключателя
   const iosToggleChange = (nextChecked) => {
+    setisIosToggleActive(!isIosToggleActive);
+    activateShortFilmsToggle(!isIosToggleActive);
+
     localStorage.setItem("switchStatus", JSON.stringify(nextChecked));
+
     if (nextChecked === false) {
       localStorage.removeItem("shortfilms")
     }
+
+    setChecked(nextChecked);
     setChecked(nextChecked);
 
-  };
+setChecked(nextChecked);
 
-  const windowMovies = window.location.pathname === "/movies";
+};
+
+// console.log(localStorage.getItem("switchStatus"))
+// console.log(isIosToggleActive)
+
+useEffect(() => {
+  if (localStorage.getItem("switchStatus") === null) {
+    localStorage.setItem("switchStatus", false);
+  }
+}, []);
+
   const {
     register,
     handleSubmit,
@@ -39,10 +62,12 @@ function Searchform({
 
   function onSubmit() {
     findFilms(inputFindMovieValue);
-    windowMovies
-      ? localStorage.setItem("valueMovies", inputFindMovieValue)
-      : localStorage.setItem("valueSavedMovies", inputFindMovieValue);
+    // windowMovies
+    //   ? localStorage.setItem("valueMovies", inputFindMovieValue)
+    //   : localStorage.setItem("valueSavedMovies", inputFindMovieValue);
   }
+
+  // console.log(inputFindMovieValue)
 
   return (
     <section className="searchform">
@@ -82,8 +107,8 @@ function Searchform({
         : errors?.inputFindSavedMovie && (
             <p className="searchform__errors">Нужно ввести ключевое слово</p>
           )}
-      {recivedMovies
-        ? recivedMovies.length === 0 && (
+      {allMoviesFromYandexApi
+        ? allMoviesFromYandexApi.length === 0 && (
             <p className="searchform__errors">Ничего не найдено</p>
           )
         : null}

@@ -6,7 +6,7 @@ import MoreMovies from "../MoreMovies/MoreMovies";
 import Preloader from "../Preloader/Preloader";
 
 export default function MoviesCardList({
-  recivedMovies,
+  allMoviesFromYandexApi,
   isLoading,
   // counter,
   // moreMovies,
@@ -36,7 +36,7 @@ export default function MoviesCardList({
   }, [value]);
 
   function checkCounter() {
-    if (recivedMovies.length > counter) {
+    if (allMoviesFromYandexApi.length > counter) {
       setMoreMovies(true);
     } else {
       setMoreMovies(false);
@@ -45,21 +45,21 @@ export default function MoviesCardList({
 
   function buttonMore() {
     if (innerWidth > 768) {
-      if (recivedMovies.length > counter) {
+      if (allMoviesFromYandexApi.length > counter) {
         setCounter(counter + 3);
         checkCounter();
       } else {
         setMoreMovies(false);
       }
     } else if (innerWidth > 321) {
-      if (recivedMovies.length > counter) {
+      if (allMoviesFromYandexApi.length > counter) {
         setCounter(counter + 2);
         checkCounter();
       } else {
         setMoreMovies(false);
       }
     } else {
-      if (recivedMovies.length > counter) {
+      if (allMoviesFromYandexApi.length > counter) {
         setCounter(counter + 1);
         checkCounter();
       } else {
@@ -70,13 +70,13 @@ export default function MoviesCardList({
 
   useEffect(() => {
     checkCounter();
-  }, [recivedMovies, counter]);
+  }, [allMoviesFromYandexApi, counter]);
 
   return isLoading ? (
     windowMovies ? (
       <>
         <section className="moviescardlist" aria-label="Фильмы">
-          {recivedMovies.slice(0, counter).map((movie, i) => (
+          {allMoviesFromYandexApi.slice(0, counter).map((movie, i) => (
             <MoviesCard
               movie={movie}
               key={movie.id}
@@ -93,7 +93,7 @@ export default function MoviesCardList({
       </>
     ) : (
       <section className="moviescardlist" aria-label="Сохранённые Фильмы">
-        {recivedMovies.map((movie, i) => (
+        {allMoviesFromYandexApi.map((movie, i) => (
           <MoviesCard
             movie={movie}
             key={movie._id}

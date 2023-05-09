@@ -38,7 +38,7 @@ function App() {
   const [confirmMessage, setConfirmMessage] = useState(false);
 
   // Константы фильмов
-  const [recivedMovies, setRecivedMovies] = useState([]);
+  const [allMoviesFromYandexApi, setAllMoviesFromYandexApi] = useState([]);
   const [counter, setCounter] = useState(12);
   const [isLoading, setIsLoading] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
@@ -48,7 +48,7 @@ function App() {
   const [value, setValue] = useState("");
 
   const [copySavedMovies, setCopySavedMovies] = useState([]);
-  const [checked, setChecked] = useState(false);
+  const [shortfilmsSwitch, setshortfilmsSwitch] = useState(false);
 
   // Определяем активные окна (пути)
   const windowMovies = window.location.pathname === "/movies";
@@ -78,12 +78,12 @@ function App() {
   // всё в локалсторадж, всё в локалсторадж
   //подгрузка фильмов из апи яндекса, без распределения по ширине экрана
   useEffect(() => {
-    if (!localStorage.getItem("recivedMovies")) {
+    if (!localStorage.getItem("allMoviesFromYandexApi")) {
       MoviesApi.getMovies()
         .then((res) => {
           setIsLoading(true);
-          localStorage.setItem("recivedMovies", JSON.stringify(res));
-          localStorage.setItem("lastFoundMovies", JSON.stringify(res));
+          localStorage.setItem("allMoviesFromYandexApi", JSON.stringify(res));
+          localStorage.setItem("moviesOnThePage", JSON.stringify(res));
         })
         .catch((err) =>
           console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`)
@@ -91,8 +91,8 @@ function App() {
     } else {
       setIsLoading(true);
       localStorage.getItem("valueMovies")
-        ? setRecivedMovies(JSON.parse(localStorage.getItem("lastFoundMovies")))
-        : setRecivedMovies(JSON.parse(localStorage.getItem("recivedMovies")));
+        ? setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")))
+        : setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("allMoviesFromYandexApi")));
     }
   }, [token]);
 
@@ -138,12 +138,12 @@ function App() {
   useEffect(() => {
     checkToken(); // перенесли сюда из отдельного useEffect
 
-    if (localStorage.getItem("lastFoundMovies")) {
+    if (localStorage.getItem("moviesOnThePage")) {
       if (localStorage.getItem("shortfilms") && windowMovies) {
-        setChecked(true);
-        setRecivedMovies(JSON.parse(localStorage.getItem("shortfilms")));
+        setshortfilmsSwitch(true);
+        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("shortfilms")));
       } else {
-        setRecivedMovies(JSON.parse(localStorage.getItem("lastFoundMovies")));
+        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")));
       }
     } else {
       return;
@@ -168,6 +168,20 @@ function App() {
         );
     }
   }, [token, windowMovies, currentUser.user_id]);
+
+  function activateShortFilmsToggle(isIosToggleActive) {
+    if (isIosToggleActive) {
+      setshortfilmsSwitch(true);
+    } else {
+      setshortfilmsSwitch(false);
+      if (windowMovies) {
+        localStorage.removeItem("isMoviesToggleActive");
+      } else {
+        return;
+      }
+    }
+  }
+
 
   function handleSignOut() {
     setIsUserLoggedIn(false);
@@ -196,10 +210,10 @@ function App() {
   function findFilms(value) {
     setValue(value);
     if (windowMovies) {
-      if (!!localStorage.getItem("shortfilms")) {
-        setChecked(true);
+      if (!!localStorage.getItem("shortFilms")) {
+        setshortfilmsSwitch(true);
         const movie = Object.values(
-          JSON.parse(localStorage.getItem("recivedMovies"))
+          JSON.parse(localStorage.getItem("allMoviesFromYandexApi"))
         ).filter((item) => {
           return item.nameRU.toLowerCase().includes(value.toLowerCase())
             ? item
@@ -208,22 +222,22 @@ function App() {
         const shortMovie = Object.values(movie).filter((item) => {
           return item.duration < 40 ? item : null;
         });
-        setRecivedMovies(shortMovie);
+        setAllMoviesFromYandexApi(shortMovie);
         localStorage.setItem("shortfilms", JSON.stringify(shortMovie));
-        localStorage.setItem("lastFoundMovies", JSON.stringify(movie));
+        localStorage.setItem("moviesOnThePage", JSON.stringify(movie));
       } else {
         const movie = Object.values(
-          JSON.parse(localStorage.getItem("recivedMovies"))
+          JSON.parse(localStorage.getItem("allMoviesFromYandexApi"))
         ).filter((item) => {
           return item.nameRU.toLowerCase().includes(value.toLowerCase())
             ? item
             : null;
         });
-        setRecivedMovies(movie);
-        localStorage.setItem("lastFoundMovies", JSON.stringify(movie));
+        setAllMoviesFromYandexApi(movie);
+        localStorage.setItem("moviesOnThePage", JSON.stringify(movie));
       }
     } else {
-      if (setChecked) {
+      if (shortfilmsSwitch) {
         const movie = Object.values(
           JSON.parse(localStorage.getItem("savedMovies"))
         ).filter((item) => {
@@ -264,7 +278,6 @@ function App() {
         movie.nameRU,
         movie.nameEN,
         url + movie.image.url,
-        // movie.id.toString(),
         movie.id.toString(),
         token
       )
@@ -296,29 +309,29 @@ function App() {
   //короткометражный переключатель
   useEffect(() => {
     if (windowMovies) {
-      if (checked) {
-        const movie = Object.values(recivedMovies).filter((item) => {
+      if (shortfilmsSwitch) {
+        const movie = Object.values(allMoviesFromYandexApi).filter((item) => {
           return item.duration < 40 ? item : null;
         });
-        setRecivedMovies(movie);
+        setAllMoviesFromYandexApi(movie);
         localStorage.setItem("shortfilms", JSON.stringify(movie));
       } else {
-        setRecivedMovies(JSON.parse(localStorage.getItem("lastFoundMovies")));
-        setChecked(false);
+        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")));
+        setshortfilmsSwitch(false);
         // localStorage.removeItem("shortfilms"); // вот тут могут быть проблемы может быть
       }
     } else {
-      if (checked) {
+      if (shortfilmsSwitch) {
         const movie = Object.values(savedMovies).filter((item) => {
           return item.duration < 40 ? item : null;
         });
         setSavedMovies(movie);
       } else {
         setSavedMovies(copySavedMovies);
-        setChecked(false);
+        setshortfilmsSwitch(false);
       }
     }
-  }, [checked, windowMovies]);
+  }, [shortfilmsSwitch, windowMovies]);
 
   useEffect(() => {
     setErrorMessageReg("");
@@ -328,13 +341,13 @@ function App() {
   // обработка короткометражек
   function onClickHeaderMovies() {
     if (localStorage.getItem("shortfilms")) {
-      setChecked(true);
+      setshortfilmsSwitch(true);
     } else {
-      setChecked(false);
+      setshortfilmsSwitch(false);
     }
   }
   const onClickHeaderSavedMovies = () => {
-    setChecked(false);
+    setshortfilmsSwitch(false);
     // console.log('clicked to saved')
     localStorage.removeItem("valueSavedMovies");
     localStorage.removeItem("shortfilms");
@@ -405,7 +418,7 @@ function App() {
                 />
                 <Movies
                   isLoading={isLoading}
-                  recivedMovies={recivedMovies}
+                  allMoviesFromYandexApi={allMoviesFromYandexApi}
                   counter={counter}
                   moreMovies={moreMovies}
                   isSavedMoviesSection={isSavedMoviesSection}
@@ -414,8 +427,8 @@ function App() {
                   setSavedMovies={setSavedMovies}
                   findFilms={findFilms}
                   token={token}
-                  checked={checked}
-                  setChecked={setChecked}
+                  activateShortFilmsToggle={activateShortFilmsToggle}
+                  shortfilmsSwitch={shortfilmsSwitch}
                   handleSaveMovie={handleSaveMovie}
                   handleUnSaveMovie={handleUnSaveMovie}
                   value={value}
@@ -436,13 +449,13 @@ function App() {
                 <SavedMovies
                   handleSaveMovie={handleSaveMovie} //
                   handleUnSaveMovie={handleUnSaveMovie} //
-                  recivedMovies={savedMovies}
+                  allMoviesFromYandexApi={savedMovies}
                   isLoading={isLoading}
                   isSavedMoviesSection={isSavedMoviesSection}
                   savedMovies={savedMovies}
                   findFilms={findFilms}
-                  checked={checked}
-                  setChecked={setChecked}
+                  activateShortFilmsToggle={activateShortFilmsToggle}
+                  shortfilmsSwitch={shortfilmsSwitch}
                 />
                 <Footer />
               </ProtectedRoute>

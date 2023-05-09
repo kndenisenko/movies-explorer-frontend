@@ -6,13 +6,15 @@ import SearchForm from "../Searchform/Searchform";
 export default function SavedMovies({
   handleSaveMovie,
   handleUnSaveMovie,
-  recivedMovies,
+  allMoviesFromYandexApi,
   isLoading,
   isSavedMoviesSection,
   savedMovies,
   findFilms,
-  checked,
-  setChecked,
+  // checked,
+  // setChecked,
+  activateShortFilmsToggle,
+  shortfilmsSwitch
 }) {
   // console.log('savedMovies', savedMovies);
 
@@ -20,16 +22,16 @@ export default function SavedMovies({
     <>
       <SearchForm
         findFilms={findFilms}
-        checked={checked}
-        setChecked={setChecked}
-        recivedMovies={recivedMovies}
+        allMoviesFromYandexApi={allMoviesFromYandexApi}
+        activateShortFilmsToggle={activateShortFilmsToggle}
+        shortfilmsSwitch={shortfilmsSwitch}
       />
 
-      {recivedMovies.length === 0 ? null : (
+      {allMoviesFromYandexApi.length === 0 ? null : (
         <MoviesCardList
           handleSaveMovie={handleSaveMovie}
           handleUnSaveMovie={handleUnSaveMovie}
-          recivedMovies={recivedMovies}
+          allMoviesFromYandexApi={allMoviesFromYandexApi}
           isLoading={isLoading}
           isSavedMoviesSection={isSavedMoviesSection}
           savedMovies={savedMovies}

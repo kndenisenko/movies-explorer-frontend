@@ -6,7 +6,7 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 // import { useState } from "react";
 
 function Movies({
-  recivedMovies,
+  allMoviesFromYandexApi,
   isLoading,
   counter,
   moreMovies,
@@ -14,30 +14,32 @@ function Movies({
   isMainMoviesSection,
   savedMovies,
   findFilms,
-  checked,
-  setChecked,
+  // checked,
+  // setChecked,
   handleSaveMovie,
   handleUnSaveMovie,
   value,
   loadMoreMovies,
+  activateShortFilmsToggle,
+  shortfilmsSwitch,
 }) {
   return (
     <>
       <Searchform
         findFilms={findFilms}
-        checked={checked}
-        setChecked={setChecked}
-        recivedMovies={recivedMovies}
+        allMoviesFromYandexApi={allMoviesFromYandexApi}
+        activateShortFilmsToggle={activateShortFilmsToggle}
+        shortfilmsSwitch={shortfilmsSwitch}
       />
 
-      {recivedMovies ? (
-        recivedMovies.length === 0 ? null : (
+      {allMoviesFromYandexApi ? (
+        allMoviesFromYandexApi.length === 0 ? null : (
           <MoviesCardList
             handleSaveMovie={handleSaveMovie} //
             handleUnSaveMovie={handleUnSaveMovie} //
             isLoading={isLoading} //
             moreMovies={moreMovies} //
-            recivedMovies={recivedMovies} //
+            allMoviesFromYandexApi={allMoviesFromYandexApi} //
             counter={counter}
             isSavedMoviesSection={isSavedMoviesSection}
             isMainMoviesSection={isMainMoviesSection}
