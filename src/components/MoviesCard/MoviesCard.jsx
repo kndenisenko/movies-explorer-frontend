@@ -2,7 +2,7 @@ import "./moviesCard.css";
 
 import React, { useEffect, useState, useContext } from "react";
 import { Urls } from "../../utils/const";
-// import { CurrentUserContext } from "../../utils/CurrentUserContext";
+import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 export default function MoviesCard({
   movie,
@@ -14,16 +14,16 @@ export default function MoviesCard({
   isSavedMoviesPage,
   windowMovies
 }) {
-  // const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext(CurrentUserContext);
 
   const [isSaved, setIsSaved] = useState(false);
   const [savedMovie, setSavedMovie] = useState([]);
 
-  const movieId = movie.id;
-  const mongoId = movie._id;
-  const savedMovieData = savedMovies.find(
-    (savedMovie) => savedMovie.movieId === movieId
-  );
+  // const movieId = movie.id;
+  // const mongoId = movie._id;
+  // const savedMovieData = savedMovies.find(
+  //   (savedMovie) => savedMovie.movieId === movieId
+  // );
 
   const url = "https://api.nomoreparties.co/";
 
@@ -40,32 +40,15 @@ export default function MoviesCard({
   }
 
   function unSaveMovie() {
-    if (isSaved && savedMovieData) {
-      handleUnSaveMovie({ ...movie, _id: savedMovieData._id });
-    } else {
-      handleUnSaveMovie(movie);
-    }
+    handleUnSaveMovie(savedMovie);
+    setIsSaved(false);
   }
 
-  // дополнительная проверка для статуса фильма
   useEffect(() => {
-    const isMovieSaved = savedMovies.some(
-      (savedMovie) => savedMovie.movieId === movie.id
-    );
-    setIsSaved(isMovieSaved);
-    if (isMovieSaved) {
-      setSavedMovie(savedMovies.find((item) => item.movieId === movie.movieId));
-    }
-  }, [movie, savedMovies, isMainMoviesSection]);
-
-  useEffect(() => {
+    setIsSaved(false);
     isMainMoviesSection
       ? savedMovies.map((item) => {
-          const isMovieSaved = savedMovies.some(
-            (savedMovie) => savedMovie.movieId === movie.id
-          );
-          setIsSaved(isMovieSaved);
-          if (item.movieId === movie.movieid) {
+          if (item.movieId === `${movie.id + currentUser.user_id}`) {
             setIsSaved(true);
             setSavedMovie(item);
           }
@@ -78,7 +61,7 @@ export default function MoviesCard({
           }
           return item;
         });
-  }, [movie, savedMovies, isMainMoviesSection, isSaved]);
+  }, [movie, savedMovies, isMainMoviesSection, isSaved, currentUser.user_id]);
 
   return windowMovies ? (
     <>
