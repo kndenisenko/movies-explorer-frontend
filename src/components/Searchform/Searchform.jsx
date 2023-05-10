@@ -13,10 +13,10 @@ function Searchform({
   shortfilmsSwitch,
 }) {
   const windowMovies = window.location.pathname === "/movies";
+  const windowSavedMovies = window.location.pathname === "/saved-movies";
 
   const [checked, setChecked] = useState(JSON.parse(localStorage.getItem("switchStatus")));
   const [isIosToggleActive, setisIosToggleActive] = useState(JSON.parse(localStorage.getItem("switchStatus")));
-
 
   // 🩼 для работы 🩼-переключателя
   const iosToggleChange = (nextChecked) => {
@@ -39,6 +39,31 @@ setChecked(nextChecked);
 // console.log(localStorage.getItem("switchStatus"))
 // console.log(isIosToggleActive)
 
+// поведение переключателя, при открытии страницы saved-movies
+// запоминать состояние переключателя при переходе на страницу saved-movies
+// и возвращать его обратно, если он переключался
+useEffect(() => {
+  if (windowSavedMovies) {
+    console.log('saved-movies')
+    if (JSON.parse(localStorage.getItem("switchStatus")) === true) {
+            setChecked(false)
+            setisIosToggleActive(false)
+            localStorage.setItem("switchStatus", false)
+            localStorage.setItem("switchStatusBuffer", true)
+          }
+  } else {
+    console.log('movies', localStorage.getItem("switchStatusBuffer"))
+    if (JSON.parse(localStorage.getItem("switchStatusBuffer")) === true) {
+      setChecked(true)
+      setisIosToggleActive(true)
+      localStorage.setItem("switchStatus", true)
+      localStorage.setItem("switchStatusBuffer", false)
+    } else {}
+  }
+}, []);
+
+// выставление switchStatus, если его ещё нет в localstorage,
+// это происходит при первой загрузке страницы
 useEffect(() => {
   if (localStorage.getItem("switchStatus") === null) {
     localStorage.setItem("switchStatus", false);
@@ -62,9 +87,9 @@ useEffect(() => {
 
   function onSubmit() {
     findFilms(inputFindMovieValue);
-    // windowMovies
-    //   ? localStorage.setItem("valueMovies", inputFindMovieValue)
-    //   : localStorage.setItem("valueSavedMovies", inputFindMovieValue);
+    windowMovies
+      ? localStorage.setItem("valueMovies", inputFindMovieValue)
+      : localStorage.setItem("valueSavedMovies", inputFindMovieValue);
   }
 
   // console.log(inputFindMovieValue)

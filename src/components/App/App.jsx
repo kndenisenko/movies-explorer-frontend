@@ -88,7 +88,8 @@ function App() {
         .catch((err) =>
           console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`)
         );
-    } else {
+    }
+    else {
       setIsLoading(true);
       localStorage.getItem("valueMovies")
         ? setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")))
