@@ -14,8 +14,6 @@ function Movies({
   isMainMoviesSection,
   savedMovies,
   findFilms,
-  // checked,
-  // setChecked,
   handleSaveMovie,
   handleUnSaveMovie,
   value,

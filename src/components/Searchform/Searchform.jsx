@@ -25,15 +25,11 @@ function Searchform({
 
     localStorage.setItem("switchStatus", JSON.stringify(nextChecked));
 
-    if (nextChecked === false) {
-      localStorage.removeItem("shortfilms")
-    }
+    // if (nextChecked === false) {
+    //   localStorage.removeItem("shortfilms")
+    // }
 
     setChecked(nextChecked);
-    setChecked(nextChecked);
-
-setChecked(nextChecked);
-
 };
 
 // console.log(localStorage.getItem("switchStatus"))
@@ -45,14 +41,6 @@ setChecked(nextChecked);
 useEffect(() => {
   if (windowSavedMovies) {
     console.log('saved-movies')
-    if (JSON.parse(localStorage.getItem("switchStatus")) === true) {
-            setChecked(false)
-            setisIosToggleActive(false)
-            localStorage.setItem("switchStatus", false)
-            localStorage.setItem("switchStatusBuffer", true)
-          }
-  } else {
-    console.log('movies', localStorage.getItem("switchStatusBuffer"))
     if (JSON.parse(localStorage.getItem("switchStatusBuffer")) === true) {
       setChecked(true)
       setisIosToggleActive(true)

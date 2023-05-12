@@ -11,8 +11,6 @@ export default function SavedMovies({
   isSavedMoviesSection,
   savedMovies,
   findFilms,
-  // checked,
-  // setChecked,
   activateShortFilmsToggle,
   shortfilmsSwitch
 }) {

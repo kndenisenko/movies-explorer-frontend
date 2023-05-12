@@ -211,7 +211,7 @@ function App() {
   function findFilms(value) {
     setValue(value);
     if (windowMovies) {
-      if (!!localStorage.getItem("shortFilms")) {
+      if (shortfilmsSwitch) {
         setshortfilmsSwitch(true);
         const movie = Object.values(
           JSON.parse(localStorage.getItem("allMoviesFromYandexApi"))
@@ -347,11 +347,12 @@ function App() {
       setshortfilmsSwitch(false);
     }
   }
+
   const onClickHeaderSavedMovies = () => {
     setshortfilmsSwitch(false);
     // console.log('clicked to saved')
     localStorage.removeItem("valueSavedMovies");
-    localStorage.removeItem("shortfilms");
+    // localStorage.removeItem("shortfilms");
   };
 
   return (
