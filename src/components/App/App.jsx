@@ -170,8 +170,8 @@ function App() {
     }
   }, [token, windowMovies, currentUser.user_id]);
 
-  function activateShortFilmsToggle(isIosToggleActive) {
-    if (isIosToggleActive) {
+  function activateShortFilmsToggle(isIosToggleActiveMovies) {
+    if (isIosToggleActiveMovies) {
       setshortfilmsSwitch(true);
     } else {
       setshortfilmsSwitch(false);

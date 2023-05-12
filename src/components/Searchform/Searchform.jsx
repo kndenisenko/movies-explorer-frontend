@@ -15,46 +15,69 @@ function Searchform({
   const windowMovies = window.location.pathname === "/movies";
   const windowSavedMovies = window.location.pathname === "/saved-movies";
 
-  const [checked, setChecked] = useState(JSON.parse(localStorage.getItem("switchStatus")));
-  const [isIosToggleActive, setisIosToggleActive] = useState(JSON.parse(localStorage.getItem("switchStatus")));
+  const [checkedMovies, setcheckedMovies] = useState(JSON.parse(localStorage.getItem("switchStatusMovies")));
+  const [isIosToggleActiveMovies, setisIosToggleActiveMovies] = useState(JSON.parse(localStorage.getItem("switchStatusMovies")));
 
   // 🩼 для работы 🩼-переключателя
-  const iosToggleChange = (nextChecked) => {
-    setisIosToggleActive(!isIosToggleActive);
-    activateShortFilmsToggle(!isIosToggleActive);
+  const iosToggleChangeMovies = (nextChecked) => {
+    setisIosToggleActiveMovies(!isIosToggleActiveMovies);
+    activateShortFilmsToggle(!isIosToggleActiveMovies);
 
-    localStorage.setItem("switchStatus", JSON.stringify(nextChecked));
+    localStorage.setItem("switchStatusMovies", JSON.stringify(nextChecked));
 
-    // if (nextChecked === false) {
-    //   localStorage.removeItem("shortfilms")
-    // }
+    if (nextChecked === false) {
+      // localStorage.removeItem("shortfilms")
+    }
 
-    setChecked(nextChecked);
+    setcheckedMovies(nextChecked);
 };
 
-// console.log(localStorage.getItem("switchStatus"))
-// console.log(isIosToggleActive)
+const [checkedSavedMovies, setcheckedSavedMovies] = useState(JSON.parse(localStorage.getItem("switchStatusSavedMovies")));
+const [isIosToggleActiveSavedMovies, setisIosToggleActiveSavedMovies] = useState(JSON.parse(localStorage.getItem("switchStatusSavedMovies")));
+
+  // 🩼 для работы 🩼-переключателя
+  const iosToggleChangeSavedMovies = (nextChecked) => {
+    setisIosToggleActiveSavedMovies(!isIosToggleActiveSavedMovies);
+    activateShortFilmsToggle(!isIosToggleActiveSavedMovies);
+
+    localStorage.setItem("switchStatusSavedMovies", JSON.stringify(nextChecked));
+
+    if (nextChecked === false) {
+      // localStorage.removeItem("shortfilms")
+    }
+
+    setcheckedSavedMovies(nextChecked);
+};
+
+// console.log(localStorage.getItem("switchStatusMovies"))
+// console.log(isIosToggleActiveMovies)
 
 // поведение переключателя, при открытии страницы saved-movies
 // запоминать состояние переключателя при переходе на страницу saved-movies
 // и возвращать его обратно, если он переключался
+// useEffect(() => {
+//   if (windowSavedMovies) {
+//     console.log('saved-movies')
+//     if (JSON.parse(localStorage.getItem("switchStatusBuffer")) === true) {
+//       setcheckedMovies(true)
+//       setisIosToggleActiveMovies(true)
+//       localStorage.setItem("switchStatusMovies", true)
+//       localStorage.setItem("switchStatusBuffer", false)
+//     } else {}
+//   }
+// }, []);
+
+// выставление switchStatusMovies, если его ещё нет в localstorage,
+// это происходит при первой загрузке страницы
 useEffect(() => {
-  if (windowSavedMovies) {
-    console.log('saved-movies')
-    if (JSON.parse(localStorage.getItem("switchStatusBuffer")) === true) {
-      setChecked(true)
-      setisIosToggleActive(true)
-      localStorage.setItem("switchStatus", true)
-      localStorage.setItem("switchStatusBuffer", false)
-    } else {}
+  if (localStorage.getItem("switchStatusMovies") === null) {
+    localStorage.setItem("switchStatusMovies", false);
   }
 }, []);
 
-// выставление switchStatus, если его ещё нет в localstorage,
-// это происходит при первой загрузке страницы
 useEffect(() => {
-  if (localStorage.getItem("switchStatus") === null) {
-    localStorage.setItem("switchStatus", false);
+  if (localStorage.getItem("switchStatusSavedMovies") === null) {
+    localStorage.setItem("switchStatusSavedMovies", false);
   }
 }, []);
 
@@ -99,11 +122,12 @@ useEffect(() => {
         <button className="searchform__search-button" type="submit"></button>
       </form>
       <div className="switch__container">
+          {windowMovies ?
         <Switch
           className="react-switch"
-          checked={checked}
+          checked={checkedMovies}
           onClick={checkedToggle}
-          onChange={iosToggleChange}
+          onChange={iosToggleChangeMovies}
           onColor="#3DDC84"
           height={20}
           width={36}
@@ -111,6 +135,20 @@ useEffect(() => {
           uncheckedIcon={false}
           checkedIcon={false}
         />
+        :
+        <Switch
+          className="react-switch"
+          checked={checkedSavedMovies}
+          onClick={checkedToggle}
+          onChange={iosToggleChangeSavedMovies}
+          onColor="#3DDC84"
+          height={20}
+          width={36}
+          handleDiameter={16}
+          uncheckedIcon={false}
+          checkedIcon={false}
+        />
+      }
         <p className="react-switch__name">Короткометражки</p>
       </div>
       {windowMovies
