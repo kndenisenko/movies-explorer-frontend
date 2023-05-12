@@ -30,7 +30,7 @@ function Login({ handleLogin, isUserLoggedIn, history, errorMessage }) {
   ) : (
     <section className="login">
       <div className="login__container">
-        <Link to={Pathes.main} className="login__logo"></Link>
+        <Link to={Pathes.movies} className="login__logo"></Link>
         <h1 className="login__header">Рады видеть!</h1>
         <form className="login__form" onSubmit={handleSubmit(onSubmit)}>
           <p className="login__form-header">E-mail</p>
