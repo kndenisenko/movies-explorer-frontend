@@ -94,6 +94,15 @@
   margin: 0;
 }
 
+.profile__same {
+  font-size: 13px;
+  color: var(--accent-color);
+  background-color: var(--bg-color);
+  border: none;
+  transition: all, 0.3s;
+  margin: 186px 0 16px 0;
+}
+
 .profile__confirm-message {
   font-size: 13px;
   color: var(--accent-color);
@@ -111,6 +120,15 @@
   .profile__save-changes {
     margin: 173px 0 16px 0;
   }
+
+  .profile__need-changes {
+    margin: 173px 0 16px 0;
+  }
+
+  .profile__same {
+    margin: 173px 0 16px 0;
+  }
+
 }
 
 @media (width <= 430px) {
@@ -129,5 +147,14 @@
   .profile__save-changes {
     margin: 341px 0 16px 0;
   }
+
+  .profile__need-changes {
+    margin: 341px 0 16px 0;
+  }
+
+  .profile__same {
+    margin: 341px 0 16px 0;
+  }
+
 }
 

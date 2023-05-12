@@ -32,25 +32,34 @@ function Profile({
 
   const [profileName, profileEmail] = watch(["profileName", "profileEmail"]);
 
-
-  console.log('errors', Object.keys(errors).length)
+  // console.log('errors', Object.keys(errors).length)
 
   function checkValidity() {
     if (
-      Object.keys(errors).length > 0
-    ) {
+      profileName === currentUser.name && profileEmail === currentUser.email
+      ) {
       return (
-        <button className="profile__need-changes" type="submit" disabled>
-          Исправьте ошибки для обновления профиля
+        <button className="profile__same" type="submit" disabled>
+          Для сохранения данных профиля измените Имя или E-mail
         </button>
       );
     } else {
-      return (
-        <button className="profile__save-changes" type="submit">
-          Редактировать
-        </button>
-      );
-    }
+        if (
+        Object.keys(errors).length > 0
+      ) {
+        return (
+          <button className="profile__need-changes" type="submit" disabled>
+            Исправьте ошибки для обновления профиля
+          </button>
+        );
+      } else {
+        return (
+          <button className="profile__save-changes" type="submit">
+            Редактировать
+          </button>
+        );
+      }
+  }
   }
 
   function hideError() {
