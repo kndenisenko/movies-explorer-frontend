@@ -101,8 +101,9 @@ function App() {
   function handleRegister(name, email, password) {
     return Auth.registration(name, email, password)
       .then((res) => {
+        handleLogin(email, password); // автоматически логиним нового юзера
         setCurrentUser(res);
-        history(`${Pathes.login}`); // вжух
+        history(`${Pathes.movies}`); // вжух
       })
       .catch((error) => {
         console.log("Ошибка handleRegister:");
