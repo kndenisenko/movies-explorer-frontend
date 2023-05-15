@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Pathes } from "../../utils/const";
 
-function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
+function Register({ handleRegister, isUserLoggedIn, history, errorMessageReg, setErrorMessageReg }) {
   // console.log("Register");
   const {
     register,
@@ -22,7 +22,12 @@ function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
     "registrerPassword",
   ]);
 
-  console.log("isUserLoggedIn", isUserLoggedIn);
+  // // console.log("isUserLoggedIn", isUserLoggedIn);
+  // console.log('errors-reg', errorMessageReg)
+
+  useEffect(() => {
+    setErrorMessageReg("");
+  }, []);
 
   function onSubmit() {
     handleRegister(registrationName, registrationEmail, registrerPassword);
@@ -85,7 +90,7 @@ function Register({ handleRegister, isUserLoggedIn, history, errorMessage }) {
             {errors?.registrerPassword &&
               "Укажите пароль. Можно взять pass например"}
           </span>
-          <span className="register__error">{errorMessage}</span>
+          <span className="register__error">{errorMessageReg}</span>
 
           <button className="register__button" type="submit">
             Зарегистрироваться

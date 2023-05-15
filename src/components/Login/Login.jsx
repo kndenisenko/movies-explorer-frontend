@@ -7,7 +7,7 @@ import { Pathes } from "../../utils/const";
 
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin, isUserLoggedIn, history, errorMessage }) {
+function Login({ handleLogin, isUserLoggedIn, history, errorMessageLog, setErrorMessageLog}) {
   const {
     register,
     handleSubmit,
@@ -23,7 +23,12 @@ function Login({ handleLogin, isUserLoggedIn, history, errorMessage }) {
     handleLogin(loginEmail, loginPassword);
   }
 
-  // console.log('isUserLoggedIn', isUserLoggedIn)
+  // console.log('errorMessage', errorMessage)
+  // console.log('errorMessageLog - login', errorMessageLog)
+
+  useEffect(() => {
+    setErrorMessageLog("");
+  }, []);
 
   return isUserLoggedIn ? (
     history(`${Pathes.main}`)
@@ -60,7 +65,7 @@ function Login({ handleLogin, isUserLoggedIn, history, errorMessage }) {
             {errors?.loginPassword &&
               "Укажите пароль. Можно взять pass например"}
           </span>
-          <span className="login__error">{errorMessage}</span>
+          <span className="login__error">{errorMessageLog}</span>
           <button className="login__button" type="submit">
             Войти
           </button>

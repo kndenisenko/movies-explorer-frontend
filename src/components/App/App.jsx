@@ -107,7 +107,7 @@ function App() {
       })
       .catch((error) => {
         console.log("Ошибка handleRegister:");
-        setErrorMessage(error.message);
+        setErrorMessageReg(error.message);
       });
   }
 
@@ -124,8 +124,10 @@ function App() {
         }
       })
       .catch((error) => {
-        console.log("Ошибка handleLogin:");
-        setErrorMessage(error.message);
+        // console.log("Ошибка handleLogin:");
+        // console.log('error.message APP', error.message)
+        setErrorMessageLog(error.message);
+        // console.log('error.message APP -2 ', errorMessageLog)
       });
   }
 
@@ -379,7 +381,9 @@ function App() {
                 handleRegister={handleRegister}
                 isUserLoggedIn={isUserLoggedIn}
                 history={history}
-                errorMessage={errorMessage}
+                // errorMessage={errorMessage}
+                errorMessageReg={errorMessageReg}
+                setErrorMessageReg={setErrorMessageReg}
               />
             }
           />
@@ -391,7 +395,9 @@ function App() {
                 handleLogin={handleLogin}
                 isUserLoggedIn={isUserLoggedIn}
                 history={history}
-                errorMessage={errorMessage}
+                // errorMessage={errorMessage}
+                errorMessageLog={errorMessageLog}
+                setErrorMessageLog={setErrorMessageLog}
               />
             }
           />
