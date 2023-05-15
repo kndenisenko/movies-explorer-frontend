@@ -12,7 +12,7 @@ export default function MoviesCard({
   handleUnSaveMovie,
   // movieId,
   isSavedMoviesPage,
-  windowMovies
+  windowMovies,
 }) {
   const currentUser = useContext(CurrentUserContext);
 
@@ -99,11 +99,10 @@ export default function MoviesCard({
         <div className="moviescard__info">
           <p className="moviescard__title">{movie.nameRU}</p>
 
-            <button className="moviescard__delete" onClick={unSaveMovie} />
-
+          <button className="moviescard__delete" onClick={unSaveMovie} />
         </div>
         <p className="moviescard__time">{time}</p>
       </div>
     </>
-      );
+  );
 }

@@ -128,7 +128,6 @@
   .profile__same {
     margin: 173px 0 16px 0;
   }
-
 }
 
 @media (width <= 430px) {
@@ -155,6 +154,4 @@
   .profile__same {
     margin: 341px 0 16px 0;
   }
-
 }
-

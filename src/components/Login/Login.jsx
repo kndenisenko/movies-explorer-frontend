@@ -7,7 +7,13 @@ import { Pathes } from "../../utils/const";
 
 // import logo from "../../images/logo.svg";
 
-function Login({ handleLogin, isUserLoggedIn, history, errorMessageLog, setErrorMessageLog}) {
+function Login({
+  handleLogin,
+  isUserLoggedIn,
+  history,
+  errorMessageLog,
+  setErrorMessageLog,
+}) {
   const {
     register,
     handleSubmit,

@@ -36,17 +36,16 @@ function Profile({
 
   function checkValidity() {
     if (
-      profileName === currentUser.name && profileEmail === currentUser.email
-      ) {
+      profileName === currentUser.name &&
+      profileEmail === currentUser.email
+    ) {
       return (
         <button className="profile__same" type="submit" disabled>
           Для сохранения данных профиля измените Имя или E-mail
         </button>
       );
     } else {
-        if (
-        Object.keys(errors).length > 0
-      ) {
+      if (Object.keys(errors).length > 0) {
         return (
           <button className="profile__need-changes" type="submit" disabled>
             Исправьте ошибки для обновления профиля
@@ -59,7 +58,7 @@ function Profile({
           </button>
         );
       }
-  }
+    }
   }
 
   function hideError() {
@@ -129,7 +128,11 @@ function Profile({
           {errorMessage ? errorMessage : ""}
         </span>
         {checkValidity()}
-        <Link to={Pathes.main} className="profile__logout" onClick={handleSignOut}>
+        <Link
+          to={Pathes.main}
+          className="profile__logout"
+          onClick={handleSignOut}
+        >
           Выйти из аккаунта
         </Link>
       </form>

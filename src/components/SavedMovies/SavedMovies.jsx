@@ -12,7 +12,7 @@ export default function SavedMovies({
   savedMovies,
   findFilms,
   activateShortFilmsToggle,
-  shortfilmsSwitch
+  shortfilmsSwitch,
 }) {
   // console.log('savedMovies', savedMovies);
 

@@ -88,12 +88,15 @@ function App() {
         .catch((err) =>
           console.log(`Ошибка загрузки фильмов (апи яндекса MoviesApi): ${err}`)
         );
-    }
-    else {
+    } else {
       setIsLoading(true);
       localStorage.getItem("valueMovies")
-        ? setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")))
-        : setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("allMoviesFromYandexApi")));
+        ? setAllMoviesFromYandexApi(
+            JSON.parse(localStorage.getItem("moviesOnThePage"))
+          )
+        : setAllMoviesFromYandexApi(
+            JSON.parse(localStorage.getItem("allMoviesFromYandexApi"))
+          );
     }
   }, [token]);
 
@@ -145,9 +148,13 @@ function App() {
     if (localStorage.getItem("moviesOnThePage")) {
       if (localStorage.getItem("shortfilms") && windowMovies) {
         setshortfilmsSwitch(true);
-        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("shortfilms")));
+        setAllMoviesFromYandexApi(
+          JSON.parse(localStorage.getItem("shortfilms"))
+        );
       } else {
-        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")));
+        setAllMoviesFromYandexApi(
+          JSON.parse(localStorage.getItem("moviesOnThePage"))
+        );
       }
     } else {
       return;
@@ -185,7 +192,6 @@ function App() {
       }
     }
   }
-
 
   function handleSignOut() {
     setIsUserLoggedIn(false);
@@ -320,7 +326,9 @@ function App() {
         setAllMoviesFromYandexApi(movie);
         localStorage.setItem("shortfilms", JSON.stringify(movie));
       } else {
-        setAllMoviesFromYandexApi(JSON.parse(localStorage.getItem("moviesOnThePage")));
+        setAllMoviesFromYandexApi(
+          JSON.parse(localStorage.getItem("moviesOnThePage"))
+        );
         setshortfilmsSwitch(false);
         // localStorage.removeItem("shortfilms"); // вот тут могут быть проблемы может быть
       }

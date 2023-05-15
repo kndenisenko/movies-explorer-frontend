@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Pathes } from "../../utils/const";
 
-function Register({ handleRegister, isUserLoggedIn, history, errorMessageReg, setErrorMessageReg }) {
+function Register({
+  handleRegister,
+  isUserLoggedIn,
+  history,
+  errorMessageReg,
+  setErrorMessageReg,
+}) {
   // console.log("Register");
   const {
     register,
