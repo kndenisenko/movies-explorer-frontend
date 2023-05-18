@@ -7,9 +7,10 @@
 
 Адрес сайта: https://badass.nomoredomains.club/
 
-how to start:
+Ссылка на пулл-реквест: https://github.com/kndenisenko/movies-explorer-frontend/pull/2
 
-0. install npm
+how to start: 0. install npm
+
 1. clone distro
 2. npm ci
 3. npm run start

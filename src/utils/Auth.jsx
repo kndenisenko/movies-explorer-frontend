@@ -1,6 +1,7 @@
-import { urls } from "../utils/const.js";
+import { Urls } from "../utils/const.js";
 
-const BASE_URL = urls.myapi;
+// const BASE_URL = Urls.myapi;
+const BASE_URL = Urls.myapi;
 // const BASE_URL = "http://localhost:3001";
 
 // регистрация

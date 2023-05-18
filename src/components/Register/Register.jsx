@@ -1,76 +1,102 @@
 import "./register.css";
 
 import { React, useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 
-function Register({ handleRegister, errorMessage }) {
-  console.log("Register");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+function Register({
+  handleRegister,
+  isUserLoggedIn,
+  history,
+  errorMessageReg,
+  setErrorMessageReg,
+}) {
+  // console.log("Register");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({
+    mode: "onSubmit",
+  });
 
-  function inputName(event) {
-    setName(event.target.value);
+  const [registrationName, registrationEmail, registrerPassword] = watch([
+    "registrationName",
+    "registrationEmail",
+    "registrerPassword",
+  ]);
+
+  // // console.log("isUserLoggedIn", isUserLoggedIn);
+  // console.log('errors-reg', errorMessageReg)
+
+  useEffect(() => {
+    setErrorMessageReg("");
+  }, []);
+
+  function onSubmit() {
+    handleRegister(registrationName, registrationEmail, registrerPassword);
   }
 
-  function inputEmail(event) {
-    setEmail(event.target.value);
-  }
-
-  function inputpassword(event) {
-    setPassword(event.target.value);
-  }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(name, email, password);
-    handleRegister(name, email, password);
-  }
-
-  return (
+  return isUserLoggedIn ? (
+    history(`${Pathes.main}`)
+  ) : (
     <section className="register">
       <div className="register__container">
-        <Link to={pathes.main} className="register__logo"></Link>
+        <Link to={Pathes.main} className="register__logo"></Link>
         <h1 className="register__header">Добро пожаловать!</h1>
-        <form className="register__form" onSubmit={handleSubmit}>
+        <form className="register__form" onSubmit={handleSubmit(onSubmit)}>
           <p className="register__form-header">Имя</p>
           <input
             className="register__input"
             type="text"
             placeholder="Введите имя"
-            minLength="2"
-            maxLength="40"
-            required
-            value={name}
-            onChange={inputName}
+            {...register("registrationName", {
+              required: "Введите имя",
+              minLength: {
+                value: 2,
+                message: "Минимум 2 символа",
+              },
+              maxLength: {
+                value: 30,
+                message: "Максимум 30 символа",
+              },
+            })}
           />
-
+          <span className="register__error">
+            {errors?.registrationName?.message}
+          </span>
           <p className="register__form-header">E-mail</p>
           <input
             className="register__input"
             type="text"
             placeholder="Введите E-mail"
-            minLength="2"
-            maxLength="40"
-            required
-            value={email}
-            onChange={inputEmail}
+            {...register("registrationEmail", {
+              required: "Введите e-mail",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Проверьте почтовый адрес",
+              },
+            })}
           />
-
+          <span className="register__error">
+            {errors?.registrationEmail?.message}
+          </span>
           <p className="register__form-header">Пароль</p>
           <input
             className="register__input"
-            type="text"
+            type="password"
             placeholder="Введите пароль"
-            minLength="2"
-            maxLength="40"
-            required
-            value={password}
-            onChange={inputpassword}
+            {...register("registrerPassword", {
+              required: "Введите пароль",
+            })}
           />
-
-          <span className="register__error">{errorMessage}</span>
+          <span className="register__error">
+            {errors?.registrerPassword &&
+              "Укажите пароль. Можно взять pass например"}
+          </span>
+          <span className="register__error">{errorMessageReg}</span>
 
           <button className="register__button" type="submit">
             Зарегистрироваться
@@ -80,7 +106,7 @@ function Register({ handleRegister, errorMessage }) {
           <p className="register__bottom-container-text">
             Уже зарегистрированы?
           </p>
-          <Link to={pathes.login} className="register__bottom-container-link">
+          <Link to={Pathes.login} className="register__bottom-container-link">
             Войти
           </Link>
         </div>

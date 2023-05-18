@@ -1,6 +1,6 @@
 // Запросы к нашему Api
 
-import { urls } from "../utils/const.js";
+import { Urls } from "../utils/const.js";
 
 class Api {
   constructor({ baseUrl, headers }) {
@@ -9,12 +9,24 @@ class Api {
   }
 
   async getAllMovies(token) {
+    // console.log(token)
     return fetch(`${this._baseUrl}/movies`, {
       headers: {
         ...this._headers,
         authorization: "Bearer " + token,
       },
-    }).then((res) => (res.ok ? res.json() : Promise.reject(res.status)));
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          return Promise.reject(res.status);
+        }
+      })
+      .then((data) => {
+        // console.log('getAllMovies data', data); // проверка вывода ответа сервера в консоль
+        return data;
+      });
   }
 
   async getUserInfo(token) {
@@ -56,6 +68,7 @@ class Api {
     movieId,
     token
   ) {
+    // console.log(movieId)
     return fetch(`${this._baseUrl}/movies`, {
       method: "POST",
       headers: {
@@ -96,8 +109,8 @@ class Api {
 }
 
 export const MainApi = new Api({
-  baseUrl: urls.myapi,
-  // baseUrl: "http://localhost:3001",
+  // baseUrl: Urls.myapi,
+  baseUrl: Urls.myapi,
   headers: {
     "Content-Type": "application/json",
   },

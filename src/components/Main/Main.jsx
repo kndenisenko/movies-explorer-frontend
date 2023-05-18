@@ -8,8 +8,6 @@ import About from "../About/About";
 import Tech from "../Tech/Tech";
 import Student from "../Student/Student";
 
-
-
 function Main() {
   // console.log('main')
 

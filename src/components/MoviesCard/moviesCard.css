@@ -4,7 +4,7 @@
   margin: 0;
 }
 
-.moviescard:nth-child(-n+3) {
+.moviescard:nth-child(-n + 3) {
   /* margin-top: 25px; */
 }
 
@@ -54,11 +54,30 @@
   background-repeat: no-repeat;
   background-color: transparent;
   background-position-y: center;
+  border: none;
   padding: 0;
   margin: 0;
 }
 
 .moviescard__saved:hover {
+  opacity: 0.7;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+}
+
+.moviescard__delete {
+  width: 21px;
+  height: 21px;
+  background-image: url(../../images/delete.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-position-y: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.moviescard__delete:hover {
   opacity: 0.7;
   transition: opacity 0.2s linear;
   cursor: pointer;
@@ -124,6 +143,6 @@
   }
 
   .moviescard__time {
-  margin: 10px 0 0 5px;
-}
+    margin: 10px 0 0 5px;
+  }
 }

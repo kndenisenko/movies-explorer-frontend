@@ -6,11 +6,15 @@ import logo from "../../images/logo.svg";
 import user from "../../images/user.svg";
 import Navigation from "../Burger/Burger";
 
-import { pathes } from "../../utils/const";
+import { Pathes } from "../../utils/const";
 
-function Header({ isUserLoggedIn }) {
+function Header({
+  isUserLoggedIn,
+  onClickHeaderMovies,
+  onClickHeaderSavedMovies,
+}) {
   // console.log('Header')
-
+  const [isNavigation, setIsNavigation] = useState(false);
   const [isBurger, setisBurger] = useState(false);
 
   const handleOpenBurgerMenu = () => {
@@ -27,21 +31,33 @@ function Header({ isUserLoggedIn }) {
   return isUserLoggedIn ? (
     <>
       <header className="header__logged">
-        <Link to={pathes.main}>
+        <Link to={Pathes.main}>
           <img className="header__logo" src={logo} alt="Логотип сайта" />
         </Link>
         <nav className="navy__logged">
-          <NavLink to={pathes.movies} className="navy__logged_link">
+          <NavLink
+            to={Pathes.movies}
+            className="navy__logged_link"
+            onClick={onClickHeaderMovies}
+          >
             <p className="navy__logged_link_text">Фильмы</p>
           </NavLink>
 
-          <NavLink to={pathes.savedMovies} className="navy__logged_link">
+          <NavLink
+            to={Pathes.savedMovies}
+            className="navy__logged_link"
+            onClick={onClickHeaderSavedMovies}
+          >
             <p className="navy__logged_link_text">Сохранённые фильмы</p>
           </NavLink>
         </nav>
-        <Link className="header__account-button" to={pathes.profile}>
+        <Link className="header__account-button" to={Pathes.profile}>
           <p className="header__account-button-text">Аккаунт</p>
-          <img className="header__account-button-icon" src={user} alt="Аккаунт пользователя" />
+          <img
+            className="header__account-button-icon"
+            src={user}
+            alt="Аккаунт пользователя"
+          />
         </Link>
         <button
           className="header__burger"
@@ -52,15 +68,15 @@ function Header({ isUserLoggedIn }) {
     </>
   ) : (
     <header className="header">
-      <Link to={pathes.main}>
+      <Link to={Pathes.main}>
         <img className="header__logo" src={logo} alt="Логотип сайта" />
       </Link>
       <nav className="navy">
         <div className="navy__container">
-          <NavLink to={pathes.register} className="navy__link">
+          <NavLink to={Pathes.register} className="navy__link">
             <p className="navy__link_text">Регистрация</p>
           </NavLink>
-          <NavLink to={pathes.login} className="navy__link_button" >
+          <NavLink to={Pathes.login} className="navy__link_button">
             <p className="navy__link_button_text">Войти</p>
           </NavLink>
         </div>

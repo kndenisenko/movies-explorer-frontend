@@ -1,20 +1,32 @@
 import "./moviesCard.css";
 
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { urls } from "../../utils/const";
-import { MainApi } from "../../utils/MainApi";
+import React, { useEffect, useState, useContext } from "react";
+import { Urls } from "../../utils/const";
+import { CurrentUserContext } from "../../utils/CurrentUserContext";
 
 export default function MoviesCard({
   movie,
-  isSavedMoviesSection,
   isMainMoviesSection,
   savedMovies,
-  token,
+  handleSaveMovie,
+  handleUnSaveMovie,
+  // movieId,
+  isSavedMoviesPage,
+  windowMovies,
 }) {
+  const currentUser = useContext(CurrentUserContext);
+
   const [isSaved, setIsSaved] = useState(false);
   const [savedMovie, setSavedMovie] = useState([]);
+
+  // const movieId = movie.id;
+  // const mongoId = movie._id;
+  // const savedMovieData = savedMovies.find(
+  //   (savedMovie) => savedMovie.movieId === movieId
+  // );
+
   const url = "https://api.nomoreparties.co/";
+
   const time =
     Math.floor(movie.duration / 60) +
     ":" +
@@ -22,95 +34,72 @@ export default function MoviesCard({
       ? "0" + (movie.duration % 60)
       : movie.duration % 60);
 
-  // console.log(handleSaveMovie)
-
-  function handleSaveMovie(movie) {
-    // console.log('фильм сохранён: ', token, movie)
-    MainApi.saveMovie(
-      movie.country,
-      movie.director,
-      movie.duration,
-      movie.year,
-      movie.description,
-      url + movie.image.url,
-      movie.trailerLink,
-      movie.nameRU,
-      movie.nameEN,
-      url + movie.image.url,
-      movie.id,
-      token
-    )
-      .then((newSavedMovie) => {
-        setSavedMovie(newSavedMovie);
-        setIsSaved(true);
-      })
-      .catch((err) =>
-        console.log(`Ошибка сохранения фильма handleSaveMovie: ${err}`)
-      );
+  function saveMovie(e) {
+    handleSaveMovie(movie);
+    setIsSaved(true);
   }
 
-  function handleUnSaveMovie(savedMovie) {
+  function unSaveMovie() {
+    handleUnSaveMovie(savedMovie);
     setIsSaved(false);
-    // console.log('проверка savedMovie:', savedMovie);
-    if (savedMovie && savedMovie._id) {
-      // console.log('Удаление фильма:', savedMovie._id);
-      MainApi.deleteMovie(savedMovie._id, token)
-        .then((res) => {
-          // console.log('Фильм удалён:', res);
-        })
-        .catch((err) =>
-          console.log(`Ошибка удаления фильма unSaveMovie: ${err}`)
-        );
-    }
   }
 
   useEffect(() => {
-    let found = false;
-    savedMovies.forEach((item) => {
-      if (
-        (isMainMoviesSection && item.movieId === movie.id) ||
-        (!isMainMoviesSection && item.movieId === movie.movieId)
-      ) {
-        setIsSaved(true);
-        setSavedMovie(item);
-        found = true;
-      }
-    });
+    setIsSaved(false);
+    isMainMoviesSection
+      ? savedMovies.map((item) => {
+          if (item.movieId === `${movie.id + currentUser.user_id}`) {
+            setIsSaved(true);
+            setSavedMovie(item);
+          }
+          return item;
+        })
+      : savedMovies.map((item) => {
+          if (item.movieId === movie.movieId) {
+            setIsSaved(true);
+            setSavedMovie(item);
+          }
+          return item;
+        });
+  }, [movie, savedMovies, isMainMoviesSection, isSaved, currentUser.user_id]);
 
-    if (!found) {
-      setIsSaved(false);
-      setSavedMovie(null);
-    }
-  }, [savedMovies, isMainMoviesSection, movie.id, movie.movieId]);
-
-  return (
+  return windowMovies ? (
     <>
       <div className="moviescard">
         <a href={movie.trailerLink} rel="noreferrer" target="_blank">
           <img
             className="moviescard__image"
-            src={
-              !isMainMoviesSection && isSavedMoviesSection
-                ? movie.image
-                : `${urls.superSecretUrl}/${movie.image.url}`
-            }
+            src={movie.image.url ? `${url}/${movie.image.url}` : movie.image}
             alt={movie.nameRU}
           />
         </a>
 
         <div className="moviescard__info">
           <p className="moviescard__title">{movie.nameRU}</p>
-          {isMainMoviesSection && !isSaved ? (
-            <button
-              className="moviescard__save"
-              onClick={() => handleSaveMovie(movie)}
-            />
+          {isSaved ? (
+            <button className="moviescard__saved" onClick={unSaveMovie} />
           ) : (
-            <div
-              className="moviescard__saved"
-              onClick={(event) => handleUnSaveMovie(savedMovie)}
-            />
+            <button className="moviescard__save" onClick={saveMovie} />
           )}
+        </div>
+        <p className="moviescard__time">{time}</p>
+      </div>
+    </>
+  ) : (
+    <>
+      <div className="moviescard">
+        <a href={movie.trailerLink} rel="noreferrer" target="_blank">
+          <img
+            className="moviescard__image"
+            src={movie.image.url ? `${url}/${movie.image.url}` : movie.image}
+            alt={movie.nameRU}
+          />
+        </a>
+
+        <div className="moviescard__info">
+          <p className="moviescard__title">{movie.nameRU}</p>
+
+          <button className="moviescard__delete" onClick={unSaveMovie} />
         </div>
         <p className="moviescard__time">{time}</p>
       </div>

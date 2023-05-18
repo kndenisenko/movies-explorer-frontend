@@ -36,7 +36,8 @@ function Tech() {
           </Link>
         </li>
         <li className="tech__list-item">
-          <Link className="tech__list-link"
+          <Link
+            className="tech__list-link"
             to="https://learn.javascript.ru/"
             target={"_blank"}
           >
@@ -71,7 +72,8 @@ function Tech() {
           </Link>
         </li>
         <li className="tech__list-item">
-          <Link className="tech__list-link"
+          <Link
+            className="tech__list-link"
             to="https://www.mongodb.com/"
             target={"_blank"}
           >

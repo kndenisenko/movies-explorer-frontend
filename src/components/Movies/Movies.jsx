@@ -1,48 +1,52 @@
 import "./movies.css";
 
-import {React, useState, useEffect } from "react";
-
 // Компоненты блока с фильмами
 import Searchform from "../Searchform/Searchform";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 // import { useState } from "react";
 
 function Movies({
-  handleSaveMovie,
-  handleUnSaveMovie,
-  recivedMovies,
+  allMoviesFromYandexApi,
   isLoading,
   counter,
   moreMovies,
-  buttonMore,
   isSavedMoviesSection,
   isMainMoviesSection,
   savedMovies,
   findFilms,
-  checkedToggle,
-  token,
+  handleSaveMovie,
+  handleUnSaveMovie,
+  value,
+  loadMoreMovies,
+  activateShortFilmsToggle,
+  shortfilmsSwitch,
 }) {
-  // console.log('Movies');
-  // const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-  // setIsUserLoggedIn(true);
-
   return (
     <>
-      <Searchform findFilms={findFilms} checkedToggle={checkedToggle} />
-
-      <MoviesCardList
-        // handleSaveMovie={handleSaveMovie}
-        // handleUnSaveMovie={handleUnSaveMovie}
-        recivedMovies={recivedMovies}
-        isLoading={isLoading}
-        counter={counter}
-        moreMovies={moreMovies}
-        buttonMore={buttonMore}
-        isSavedMoviesSection={isSavedMoviesSection}
-        isMainMoviesSection={isMainMoviesSection}
-        savedMovies={savedMovies}
-        token={token}
+      <Searchform
+        findFilms={findFilms}
+        allMoviesFromYandexApi={allMoviesFromYandexApi}
+        activateShortFilmsToggle={activateShortFilmsToggle}
+        shortfilmsSwitch={shortfilmsSwitch}
       />
+
+      {allMoviesFromYandexApi ? (
+        allMoviesFromYandexApi.length === 0 ? null : (
+          <MoviesCardList
+            handleSaveMovie={handleSaveMovie} //
+            handleUnSaveMovie={handleUnSaveMovie} //
+            isLoading={isLoading} //
+            moreMovies={moreMovies} //
+            allMoviesFromYandexApi={allMoviesFromYandexApi} //
+            counter={counter}
+            isSavedMoviesSection={isSavedMoviesSection}
+            isMainMoviesSection={isMainMoviesSection}
+            savedMovies={savedMovies}
+            value={value}
+            loadMoreMovies={loadMoreMovies}
+          />
+        )
+      ) : null}
     </>
   );
 }
