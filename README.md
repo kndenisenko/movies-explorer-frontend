@@ -1,16 +1,20 @@
 # movies-explorer-frontend
 
 Фронтенд для дипломного проекта на курсах Веб-разработчик от Яндекс Практикума.
-Частично работает
+Полноценно работает. 
 
 макет в figma: https://disk.yandex.ru/d/i5wmFybJMG_GDQ
 
 Адрес сайта: https://badass.nomoredomains.club/
 
-Ссылка на пулл-реквест: https://github.com/kndenisenko/movies-explorer-frontend/pull/2
+Как запустить на сервере/локальной машине в docker:
 
-how to start: 0. install npm
+    docker build -t react-app .  
+    docker run -dp 3000:3000 --name react-front react-app
 
-1. clone distro
-2. npm ci
-3. npm run start
+Как запустить на сервере/локальной машине без docker:
+
+    install npm
+    clone distro
+    npm ci
+    npm run start
