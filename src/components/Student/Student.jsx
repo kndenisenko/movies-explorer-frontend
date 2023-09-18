@@ -13,14 +13,10 @@ function Student() {
       <h2 className="student__header">Студент</h2>
       <div className="student__info">
         <div className="student__info-container">
-          <h3 className="student__info-name">Виталий</h3>
+          <h3 className="student__info-name">Константин</h3>
           <p className="student__info-status">Фронтенд-разработчик, 30 лет</p>
           <p className="student__info-bio">
-            Я родился и живу в Саратове, закончил факультет экономики СГУ. У
-            меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь
-            бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ
-            Контур». После того, как прошёл курс по веб-разработке, начал
-            заниматься фриланс-заказами и ушёл с постоянной работы.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eu dictum lorem, sit amet dignissim nunc. Maecenas non accumsan tortor. Aliquam accumsan metus nec tempus tempor. Nunc vehicula eleifend finibus. Donec auctor nulla nec odio posuere consequat. Curabitur eget massa fringilla, posuere diam vel, efficitur odio. Vivamus nec aliquam dolor, at maximus urna. Sed a elit non neque tincidunt aliquet non id eros.
           </p>
         </div>
         <Link
